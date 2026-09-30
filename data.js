@@ -4030,6 +4030,7 @@ const STORES = {
 
   ,
   "ichi": {
+    heroImage: "images/ichi_hero.jpg",
     tel: "011-600-6040",
     address: "北海道札幌市中央区南7条西6-2-12",
     accessNote: false,
@@ -4211,6 +4212,7 @@ const STORES = {
 
   ,
   "kaoru": {
+    heroImage: "images/kaoru_hero.jpg",
     tel: "050-5486-2102",
     address: "北海道札幌市中央区南5条西5-13 美松タワービル2F",
     accessNote: false,
