@@ -338,9 +338,18 @@ function esc(str){
 let currentLang = "ja";
 let currentStore = null;
 
+function getStoreIdFromUrl(){
+  // クエリパラメータ（?id=◯◯）を優先。無ければパス（/◯◯）から取得（_redirectsによる個別URL対応）
+  const q = new URLSearchParams(window.location.search).get("id");
+  if (q) return q;
+  const path = window.location.pathname.replace(/^\/+|\/+$/g, "");
+  if (path && STORES[path]) return path;
+  return null;
+}
+
 function renderTestSwitcher(){
-  // 個別URL（?id=◯◯）でアクセスされた場合は、本番と同じ見た目にするため非表示にする
-  const hasId = new URLSearchParams(window.location.search).get("id");
+  // 個別URL（?id=◯◯ または /◯◯）でアクセスされた場合は、本番と同じ見た目にするため非表示にする
+  const hasId = getStoreIdFromUrl();
   if(hasId) return "";
 
   const ids = Object.keys(STORES);
@@ -544,7 +553,7 @@ function renderNotFound(){
 
 (function init(){
   try { currentLang = localStorage.getItem("ssmap_lang") || "ja"; } catch(e){}
-  const id = new URLSearchParams(window.location.search).get("id");
+  const id = getStoreIdFromUrl();
   // IDが無い場合は、確認用として最初の店舗を自動表示します
   // （実際の運用ではQRコードのURLに必ず ?id=◯◯ が入るため、この分岐は使われません）
   const firstId = Object.keys(STORES)[0];
