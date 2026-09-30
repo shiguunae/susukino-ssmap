@@ -2366,6 +2366,7 @@ const STORES = {
 
   ,
   "yakinikuitumokoko": {
+    heroImage: "images/yakinikuitumokoko_hero.jpg",
     tel: "011-221-0601",
     address: "北海道札幌市中央区南３条西２丁目６　ＫＴ三条ビル B1F",
     accessNote: false,
