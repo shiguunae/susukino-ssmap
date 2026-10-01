@@ -2180,6 +2180,7 @@ const STORES = {
   ,
   "nemochan3": {
     heroImage: "images/nemochan3_hero.jpg",
+    menuImage: "images/nemochan3_menu.jpg",
     tel: "011-252-9660",
     address: "北海道札幌市中央区南4条西3丁目 No.3グリーンビル1F",
     accessNote: false,
