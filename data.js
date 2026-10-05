@@ -8536,6 +8536,8 @@ const STORES = {
   ,
   "saki": {
     heroImage: "images/saki_hero.jpg",
+    menuImage: "images/saki_menu.jpg",
+    interiorImage: "images/saki_interior.jpg",
     tel: "011-219-8338",
     address: "北海道札幌市中央区南3条西3丁目 G-DINING札幌 6F",
     accessNote: false,
