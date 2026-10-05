@@ -723,7 +723,7 @@ const STORES = {
         heroTag: "ยากินิกุ",
         heroEyebrow: "ยากินิกุ",
         heroKana: "Yakiniku KIWAMI Kai",
-        heroTitle: "\u0e22\u0e32\u0e01\u0e34\u0e19\u0e34\u0e01\u0e38 KIWAMI \u0587\u0e01 -Kai-",
+        heroTitle: "ยากินิกุ KIWAMI 塊 -Kai-",
         heroSub: "คัดสรรเฉพาะส่วนหายากจากเนื้อวากิวบิราโทริชั้นเยี่ยม พร้อมเมนูเคียงสุดหรูหรา",
         budgetValue: "¥8,000-10,000",
         areaValue: "ซูซูกิโนะ มินามิ5 นิชิ4",
