@@ -3825,7 +3825,7 @@ const STORES = {
       },
       th: {
       heroTag: "คุชิอาเกะ",
-      heroEyebrow: "คุชิอาเกะ・ซุนางิโมะ・ไฮบอล",
+      heroEyebrow: "คุชิอาเกะ・กึ๋นไก่・ไฮบอล",
       heroKana: "Hachi Agemonoten",
       heroTitle: "Hachi Agemonoten",
       heroSub: "อิซากายะทั่วไปที่มีคุชิอาเกะหลากหลายชนิด เข้ากันดีกับไฮบอล บุฟเฟต์อาหารและเครื่องดื่มคุ้มราคา 90 นาที เริ่มต้น ¥2,500!",
