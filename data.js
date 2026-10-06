@@ -7063,6 +7063,7 @@ const STORES = {
   "groundizakayafuji": {
     heroImage: "images/groundizakayafuji_hero.jpg",
     menuImage: "images/groundizakayafuji_menu.jpg",
+    interiorImage: "images/groundizakayafuji_interior.jpg",
     tel: "011-511-7131",
     address: "北海道札幌市中央区南5条西4丁目 富士会館ビル",
     accessNote: false,
