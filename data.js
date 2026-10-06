@@ -7406,6 +7406,7 @@ const STORES = {
   "youshi": {
     heroImage: "images/youshi_hero.jpg",
     menuImage: "images/youshi_menu.jpg",
+    interiorImage: "images/youshi_interior.jpg",
     tel: "011-205-3088",
     address: "北海道札幌市中央区南5条西3丁目 5・3ビル6F",
     accessNote: false,
