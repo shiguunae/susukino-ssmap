@@ -5508,6 +5508,7 @@ const STORES = {
 
   ,
   "chintaohanten": {
+    heroImage: "images/chintaohanten_hero.jpg",
     tel: "011-206-4545",
     address: "北海道札幌市中央区南4条西5丁目1-1 レストランプラザ札幌2F",
     accessNote: false,
