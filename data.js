@@ -4585,6 +4585,8 @@ const STORES = {
 
   ,
   "rinndou": {
+    "heroImage": "images/rinndou_hero.jpg",
+    "menuImage": "images/rinndou_menu.jpg",
     tel: "011-600-0440",
     address: "北海道札幌市中央区南4条西4丁目4 LC拾五番館1階",
     accessNote: false,
@@ -4596,11 +4598,11 @@ const STORES = {
       heroEyebrow: "麺匠",
       heroKana: "メンショウ リンドウ サッポロ",
       heroTitle: "麺匠 りんどう 札幌",
-      heroSub: "こだわりの一杯を届ける、すすきのの本格ラーメン店。",
+      heroSub: "渾身の一杯、ここに極まる。本格的な味噌ラーメンと海老味噌ラーメンが味わえます",
       budgetValue: "1,000円～2,000円",
       areaValue: "すすきの 南4条西4丁目",
-      seatValue: "要確認（お問い合わせください）",
-      couponMain: "要確認（お問い合わせください）",
+      seatValue: "21席",
+      couponMain: "味玉1個無料",
       couponNote: "",
       couponExpiry: "有効期限 2027年1月31日まで",
       addressText: "北海道札幌市中央区南4条西4丁目4 LC拾五番館1階",
@@ -4614,20 +4616,28 @@ const STORES = {
       tag1: "カード・電子マネー・QRコード決済対応",
       tag2: "禁煙",
       tag3: "無休",
-      tag4: "要確認（お問い合わせください）",
+      tag4: "全21席",
       tag5: "個室なし",
-      menu: []
+      menu: [
+          { name: "味噌ラーメン", price: "1,100円" },
+          { name: "海老味噌ラーメン", price: "1,150円" },
+          { name: "海老辛味噌ラーメン", price: "1,250円" },
+          { name: "辛味噌ラーメン", price: "1,200円" },
+          { name: "餃子", price: "500円" },
+          { name: "牛タンカレー", price: "450円" },
+          { name: "トッピング（各）", price: "100円～" }
+        ]
       },
       en: {
       heroTag: "Ramen",
       heroEyebrow: "Noodle Craftsman",
       heroKana: "Mensho Rindou Sapporo",
       heroTitle: "Mensho Rindou Sapporo",
-      heroSub: "An authentic ramen shop in Susukino, serving a bowl crafted with real dedication.",
+      heroSub: "The ultimate bowl, perfected here. Enjoy authentic miso ramen and shrimp miso ramen.",
       budgetValue: "¥1,000–2,000",
       areaValue: "Susukino, Minami 4 Nishi 4",
-      seatValue: "Please inquire directly",
-      couponMain: "Please inquire directly",
+      seatValue: "21 seats",
+      couponMain: "One Free Seasoned Egg",
       couponNote: "",
       couponExpiry: "Valid until January 31, 2027",
       addressText: "1F LC Jugoban-kan, Minami 4 Nishi 4-4, Chuo-ku, Sapporo, Hokkaido",
@@ -4641,20 +4651,28 @@ const STORES = {
       tag1: "Cards / E-money / QR Code Payment Accepted",
       tag2: "No smoking",
       tag3: "Open Every Day",
-      tag4: "Please inquire directly",
+      tag4: "21 Seats",
       tag5: "No Private Room",
-      menu: []
+      menu: [
+          { name: "Miso Ramen", price: "¥1,100" },
+          { name: "Shrimp Miso Ramen", price: "¥1,150" },
+          { name: "Spicy Shrimp Miso Ramen", price: "¥1,250" },
+          { name: "Spicy Miso Ramen", price: "¥1,200" },
+          { name: "Gyoza", price: "¥500" },
+          { name: "Beef Tongue Curry", price: "¥450" },
+          { name: "Toppings (each)", price: "From ¥100" }
+        ]
       },
       "zh-Hant": {
       heroTag: "拉麵",
       heroEyebrow: "麵匠",
       heroKana: "Mensho Rindou Sapporo",
       heroTitle: "麵匠 龍膽 札幌",
-      heroSub: "位於薄野的正宗拉麵店，用心呈現每一碗麵。",
+      heroSub: "傾注全力的一碗，在此臻於極致。可品嚐正宗味噌拉麵與蝦味噌拉麵。",
       budgetValue: "1,000～2,000円",
       areaValue: "薄野 南4條西4丁目",
-      seatValue: "請直接洽詢店家",
-      couponMain: "請直接洽詢店家",
+      seatValue: "21席",
+      couponMain: "免費招待味付蛋1顆",
       couponNote: "",
       couponExpiry: "有效期限至2027年1月31日",
       addressText: "北海道札幌市中央區南4條西4丁目4 LC拾五番館1F",
@@ -4668,20 +4686,28 @@ const STORES = {
       tag1: "信用卡・電子錢包・QR Code支付皆可",
       tag2: "禁菸",
       tag3: "全年無休",
-      tag4: "請直接洽詢店家",
+      tag4: "共21席",
       tag5: "無包廂",
-      menu: []
+      menu: [
+          { name: "味噌拉麵", price: "¥1,100" },
+          { name: "蝦味噌拉麵", price: "¥1,150" },
+          { name: "蝦辣味噌拉麵", price: "¥1,250" },
+          { name: "辣味噌拉麵", price: "¥1,200" },
+          { name: "煎餃", price: "¥500" },
+          { name: "牛舌咖哩", price: "¥450" },
+          { name: "加料（每種）", price: "¥100起" }
+        ]
       },
       ko: {
       heroTag: "라멘",
       heroEyebrow: "멘쇼",
       heroKana: "멘쇼 린도 삿포로",
       heroTitle: "멘쇼 린도 삿포로",
-      heroSub: "정성을 담은 한 그릇을 선사하는 스스키노의 본격 라멘 가게.",
+      heroSub: "혼신을 담은 한 그릇, 여기서 완성됩니다. 본격 미소 라멘과 새우 미소 라멘을 맛볼 수 있습니다.",
       budgetValue: "1,000엔~2,000엔",
       areaValue: "스스키노 미나미4조니시4초메",
-      seatValue: "매장에 직접 문의해 주세요",
-      couponMain: "매장에 직접 문의해 주세요",
+      seatValue: "21석",
+      couponMain: "양념 반숙란 1개 무료",
       couponNote: "",
       couponExpiry: "유효기간 2027년 1월 31일까지",
       addressText: "홋카이도 삿포로시 주오구 미나미4조니시4-4 LC쥬고반칸 1F",
@@ -4695,20 +4721,28 @@ const STORES = {
       tag1: "카드・전자화폐・QR코드 결제 가능",
       tag2: "금연",
       tag3: "연중무휴",
-      tag4: "매장에 직접 문의해 주세요",
+      tag4: "전 21석",
       tag5: "개인실 없음",
-      menu: []
+      menu: [
+          { name: "미소 라멘", price: "¥1,100" },
+          { name: "새우 미소 라멘", price: "¥1,150" },
+          { name: "새우 매운 미소 라멘", price: "¥1,250" },
+          { name: "매운 미소 라멘", price: "¥1,200" },
+          { name: "교자", price: "¥500" },
+          { name: "우설 카레", price: "¥450" },
+          { name: "토핑 (각)", price: "¥100~" }
+        ]
       },
       th: {
       heroTag: "ราเมง",
       heroEyebrow: "ช่างทำเส้น",
       heroKana: "Mensho Rindou Sapporo",
       heroTitle: "Mensho Rindou Sapporo",
-      heroSub: "ร้านราเมงต้นตำรับในซูซูกิโนะ ที่ตั้งใจทำทุกชามด้วยความพิถีพิถัน",
+      heroSub: "ชามที่ทุ่มสุดตัว สมบูรณ์แบบที่นี่ ลิ้มลองมิโซะราเมงต้นตำรับและราเมงมิโซะกุ้ง",
       budgetValue: "¥1,000-2,000",
       areaValue: "ซูซูกิโนะ มินามิ4 นิชิ4",
-      seatValue: "กรุณาสอบถามร้านโดยตรง",
-      couponMain: "กรุณาสอบถามร้านโดยตรง",
+      seatValue: "21 ที่นั่ง",
+      couponMain: "ไข่ต้มหมักซีอิ๊วฟรี 1 ฟอง",
       couponNote: "",
       couponExpiry: "ใช้ได้ถึง 31 มกราคม 2027",
       addressText: "ฮอกไกโด ซัปโปโร เขตชูโอ มินามิ4 นิชิ4-4 อาคาร LC Jugobankan ชั้น 1",
@@ -4722,9 +4756,17 @@ const STORES = {
       tag1: "บัตร / e-money / QR Code",
       tag2: "ห้ามสูบบุหรี่",
       tag3: "เปิดทุกวัน",
-      tag4: "กรุณาสอบถามร้านโดยตรง",
+      tag4: "21 ที่นั่ง",
       tag5: "ไม่มีห้องส่วนตัว",
-      menu: []
+      menu: [
+          { name: "มิโซะราเมง", price: "¥1,100" },
+          { name: "ราเมงมิโซะกุ้ง", price: "¥1,150" },
+          { name: "ราเมงมิโซะเผ็ดกุ้ง", price: "¥1,250" },
+          { name: "ราเมงมิโซะเผ็ด", price: "¥1,200" },
+          { name: "เกี๊ยวซ่า", price: "¥500" },
+          { name: "แกงกะหรี่ลิ้นวัว", price: "¥450" },
+          { name: "ท็อปปิ้ง (ต่อชนิด)", price: "เริ่มต้น ¥100" }
+        ]
       }
     }
   }
