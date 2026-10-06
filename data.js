@@ -6885,6 +6885,7 @@ const STORES = {
   }
   ,
   "hitoridekorerumon": {
+    heroImage: "images/hitoridekorerumon_hero.jpg",
     tel: "011-563-5804",
     address: "北海道札幌市中央区南6条西3丁目 ジョイフル酒肴小路1F",
     accessNote: false,
