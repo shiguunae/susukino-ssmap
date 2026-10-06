@@ -1839,6 +1839,7 @@ const STORES = {
   }
   ,
   "marugenramen": {
+    "heroImage": "images/marugenramen_hero.jpg",
     "tel": "011-532-7001",
     "address": "北海道札幌市中央区南6条西3丁目すすきの中央ビル1F（ビル中）",
     "mapDestination": "マルゲンラーメン 北海道札幌市中央区南6条西3丁目すすきの中央ビル1F",
