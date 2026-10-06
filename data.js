@@ -6713,6 +6713,7 @@ const STORES = {
   ,
   "ooumimonogatari": {
     heroImage: "images/ooumimonogatari_hero.jpg",
+    menuImage: "images/ooumimonogatari_menu.jpg",
     interiorImage: "images/ooumimonogatari_interior.jpg",
     tel: "011-520-2701",
     address: "北海道札幌市中央区南5条西3丁目 N・グランデビル2F",
