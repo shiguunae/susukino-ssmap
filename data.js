@@ -4773,6 +4773,8 @@ const STORES = {
 
   ,
   "shin_raamenarata": {
+    "heroImage": "images/shin_raamenarata_hero.jpg",
+    "menuImage": "images/shin_raamenarata_menu.jpg",
     tel: "",
     address: "北海道札幌市中央区南4条西3丁目 キタコーS4ビル",
     accessNote: false,
@@ -4784,11 +4786,11 @@ const STORES = {
       heroEyebrow: "ラーメン",
       heroKana: "シン・ラアメンアラタ",
       heroTitle: "シン・らあめん新",
-      heroSub: "すすきので味わう、新しい一杯のらーめん。",
+      heroSub: "すすきので25年続く老舗のシン店舗！翌日3時まで営業中！進化した自慢のらあめんを是非ご堪能あれ。",
       budgetValue: "1,000円～2,000円",
       areaValue: "すすきの 南4条西3丁目",
-      seatValue: "要確認（お問い合わせください）",
-      couponMain: "要確認（お問い合わせください）",
+      seatValue: "12席",
+      couponMain: "チャーシューor味玉無料",
       couponNote: "",
       couponExpiry: "有効期限 2027年1月31日まで",
       addressText: "北海道札幌市中央区南4条西3丁目 キタコーS4ビル",
@@ -4802,20 +4804,28 @@ const STORES = {
       tag1: "キャッシュレス非対応",
       tag2: "禁煙",
       tag3: "無休",
-      tag4: "要確認（お問い合わせください）",
+      tag4: "全12席",
       tag5: "個室なし",
-      menu: []
+      menu: [
+          { name: "ユッケジャンらあめん", price: "1,200円" },
+          { name: "辛味噌らあめん", price: "1,200円" },
+          { name: "味噌バターコーン", price: "1,400円" },
+          { name: "味噌らあめん", price: "1,100円" },
+          { name: "背油醤油らあめん", price: "950円" },
+          { name: "エビチャーハン", price: "1,200円" },
+          { name: "トッピング（各）", price: "150円～" }
+        ]
       },
       en: {
       heroTag: "Ramen",
       heroEyebrow: "Ramen",
       heroKana: "Shin Ramen Arata",
       heroTitle: "Shin Ramen Arata",
-      heroSub: "A new bowl of ramen to enjoy in Susukino.",
+      heroSub: "The new branch of a Susukino institution with 25 years of history! Open until 3:00 a.m. Be sure to enjoy our evolved, signature ramen.",
       budgetValue: "¥1,000–2,000",
       areaValue: "Susukino, Minami 4 Nishi 3",
-      seatValue: "Please inquire directly",
-      couponMain: "Please inquire directly",
+      seatValue: "12 seats",
+      couponMain: "Free Chashu or Seasoned Egg",
       couponNote: "",
       couponExpiry: "Valid until January 31, 2027",
       addressText: "Kitako S4 Bldg, Minami 4 Nishi 3, Chuo-ku, Sapporo, Hokkaido",
@@ -4829,20 +4839,28 @@ const STORES = {
       tag1: "Cash Only",
       tag2: "No smoking",
       tag3: "Open Every Day",
-      tag4: "Please inquire directly",
+      tag4: "12 Seats",
       tag5: "No Private Room",
-      menu: []
+      menu: [
+          { name: "Yukgaejang Ramen", price: "¥1,200" },
+          { name: "Spicy Miso Ramen", price: "¥1,200" },
+          { name: "Miso Butter Corn Ramen", price: "¥1,400" },
+          { name: "Miso Ramen", price: "¥1,100" },
+          { name: "Back-fat Soy Sauce Ramen", price: "¥950" },
+          { name: "Shrimp Fried Rice", price: "¥1,200" },
+          { name: "Toppings (each)", price: "From ¥150" }
+        ]
       },
       "zh-Hant": {
       heroTag: "拉麵",
       heroEyebrow: "拉麵",
       heroKana: "Shin Ramen Arata",
       heroTitle: "新・拉麵新",
-      heroSub: "在薄野品嚐，全新的一碗拉麵。",
+      heroSub: "薄野持續25年的老字號全新分店！營業至隔日凌晨3點！請務必品嚐進化後的自豪拉麵。",
       budgetValue: "1,000～2,000円",
       areaValue: "薄野 南4條西3丁目",
-      seatValue: "請直接洽詢店家",
-      couponMain: "請直接洽詢店家",
+      seatValue: "12席",
+      couponMain: "免費招待叉燒或味付蛋",
       couponNote: "",
       couponExpiry: "有效期限至2027年1月31日",
       addressText: "北海道札幌市中央區南4條西3丁目 Kitako S4大樓",
@@ -4856,20 +4874,28 @@ const STORES = {
       tag1: "僅收現金",
       tag2: "禁菸",
       tag3: "全年無休",
-      tag4: "請直接洽詢店家",
+      tag4: "共12席",
       tag5: "無包廂",
-      menu: []
+      menu: [
+          { name: "辣牛肉湯拉麵（Yukgaejang）", price: "¥1,200" },
+          { name: "辣味噌拉麵", price: "¥1,200" },
+          { name: "味噌奶油玉米拉麵", price: "¥1,400" },
+          { name: "味噌拉麵", price: "¥1,100" },
+          { name: "背脂醬油拉麵", price: "¥950" },
+          { name: "蝦仁炒飯", price: "¥1,200" },
+          { name: "加料（每種）", price: "¥150起" }
+        ]
       },
       ko: {
       heroTag: "라멘",
       heroEyebrow: "라멘",
       heroKana: "신라멘 아라타",
       heroTitle: "신・라멘 아라타",
-      heroSub: "스스키노에서 맛보는, 새로운 한 그릇의 라멘.",
+      heroSub: "스스키노에서 25년 이어온 노포의 새 점포! 다음날 새벽 3시까지 영업 중! 진화한 자랑의 라멘을 꼭 맛보세요.",
       budgetValue: "1,000엔~2,000엔",
       areaValue: "스스키노 미나미4조니시3초메",
-      seatValue: "매장에 직접 문의해 주세요",
-      couponMain: "매장에 직접 문의해 주세요",
+      seatValue: "12석",
+      couponMain: "차슈 또는 양념 반숙란 무료",
       couponNote: "",
       couponExpiry: "유효기간 2027년 1월 31일까지",
       addressText: "홋카이도 삿포로시 주오구 미나미4조니시3초메 키타코S4빌딩",
@@ -4883,20 +4909,28 @@ const STORES = {
       tag1: "현금만 가능",
       tag2: "금연",
       tag3: "연중무휴",
-      tag4: "매장에 직접 문의해 주세요",
+      tag4: "전 12석",
       tag5: "개인실 없음",
-      menu: []
+      menu: [
+          { name: "육개장 라멘", price: "¥1,200" },
+          { name: "매운 미소 라멘", price: "¥1,200" },
+          { name: "미소 버터 콘 라멘", price: "¥1,400" },
+          { name: "미소 라멘", price: "¥1,100" },
+          { name: "돼지 등지방 간장 라멘", price: "¥950" },
+          { name: "새우 볶음밥", price: "¥1,200" },
+          { name: "토핑 (각)", price: "¥150~" }
+        ]
       },
       th: {
       heroTag: "ราเมง",
       heroEyebrow: "ราเมง",
       heroKana: "Shin Ramen Arata",
       heroTitle: "Shin Ramen Arata",
-      heroSub: "ราเมงชามใหม่ที่ให้คุณลิ้มลองในซูซูกิโนะ",
+      heroSub: "สาขาใหม่ของร้านเก่าแก่ที่อยู่คู่ซูซูกิโนะมา 25 ปี! เปิดถึงตี 3 ของวันถัดไป! ขอเชิญลิ้มลองราเมงสุดภูมิใจที่พัฒนาต่อยอดมาแล้ว",
       budgetValue: "¥1,000-2,000",
       areaValue: "ซูซูกิโนะ มินามิ4 นิชิ3",
-      seatValue: "กรุณาสอบถามร้านโดยตรง",
-      couponMain: "กรุณาสอบถามร้านโดยตรง",
+      seatValue: "12 ที่นั่ง",
+      couponMain: "ฟรีหมูชาชูหรือไข่ต้มหมักซีอิ๊ว",
       couponNote: "",
       couponExpiry: "ใช้ได้ถึง 31 มกราคม 2027",
       addressText: "ฮอกไกโด ซัปโปโร เขตชูโอ มินามิ4 นิชิ3 อาคาร Kitako S4",
@@ -4910,9 +4944,17 @@ const STORES = {
       tag1: "รับเฉพาะเงินสด",
       tag2: "ห้ามสูบบุหรี่",
       tag3: "เปิดทุกวัน",
-      tag4: "กรุณาสอบถามร้านโดยตรง",
+      tag4: "12 ที่นั่ง",
       tag5: "ไม่มีห้องส่วนตัว",
-      menu: []
+      menu: [
+          { name: "ราเมงยุกเกจัง", price: "¥1,200" },
+          { name: "ราเมงมิโซะเผ็ด", price: "¥1,200" },
+          { name: "ราเมงมิโซะเนยข้าวโพด", price: "¥1,400" },
+          { name: "มิโซะราเมง", price: "¥1,100" },
+          { name: "ราเมงซีอิ๊วมันหลัง", price: "¥950" },
+          { name: "ข้าวผัดกุ้ง", price: "¥1,200" },
+          { name: "ท็อปปิ้ง (ต่อชนิด)", price: "เริ่มต้น ¥150" }
+        ]
       }
     }
   }
