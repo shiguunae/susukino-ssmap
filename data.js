@@ -5138,6 +5138,7 @@ const STORES = {
 
   ,
   "zinngisukanpokke": {
+    heroImage: "images/zinngisukanpokke_hero.jpg",
     tel: "011-596-8929",
     address: "北海道札幌市中央区南3条西3 都ビル3F",
     accessNote: false,
