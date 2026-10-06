@@ -2025,6 +2025,7 @@ const STORES = {
   }
   ,
   "hokkaisyabusyabu": {
+    "heroImage": "images/hokkaisyabusyabu_hero.jpg",
     "interiorImage": "images/hokkaisyabusyabu_interior.jpg",
     "tel": "011-231-0384",
     "address": "北海道札幌市中央区南4条西4丁目恵愛ビル7F",
