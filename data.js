@@ -3393,7 +3393,7 @@ const STORES = {
       heroTag: "烤雞串",
       heroEyebrow: "烤雞串",
       heroKana: "Susukino Toriya Ekimae-dori",
-      heroTitle: "薄野鳥屋 車站通店",
+      heroTitle: "薄野鳥屋 站前通店",
       heroSub: "烤雞串自不用說，招牌燉牛筋更是讓人一吃上癮！",
       budgetValue: "2,000～3,000円",
       areaValue: "薄野 南6條西3丁目",
