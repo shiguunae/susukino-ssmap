@@ -5168,8 +5168,15 @@ const STORES = {
       tag2: "禁煙",
       tag3: "無休",
       tag4: "全56席",
-      tag5: "要確認（お問い合わせください）",
-      menu: []
+      tag5: "個室あり",
+      menu: [
+          { name: "オーストラリア産生ラム", price: "800円" },
+          { name: "塩ジンギスカン", price: "800円" },
+          { name: "味漬ジンギスカン", price: "800円" },
+          { name: "北海道赤平産生ラム", price: "1,700円" },
+          { name: "北海道赤平産生ラムロース", price: "2,000円" },
+          { name: "食べ飲み放題宴会コース90分", price: "5,500円" }
+        ]
       },
       en: {
       heroTag: "Jingisukan",
@@ -5195,8 +5202,15 @@ const STORES = {
       tag2: "No smoking",
       tag3: "Open Every Day",
       tag4: "56 Seats",
-      tag5: "Please inquire directly",
-      menu: []
+      tag5: "Private Room Available",
+      menu: [
+          { name: "Australian Fresh Lamb", price: "¥800" },
+          { name: "Salt Jingisukan", price: "¥800" },
+          { name: "Marinated Jingisukan", price: "¥800" },
+          { name: "Hokkaido Akabira Fresh Lamb", price: "¥1,700" },
+          { name: "Hokkaido Akabira Fresh Lamb Loin", price: "¥2,000" },
+          { name: "All-You-Can-Eat & Drink Banquet Course (90 min)", price: "¥5,500" }
+        ]
       },
       "zh-Hant": {
       heroTag: "成吉思汗烤肉",
@@ -5222,8 +5236,15 @@ const STORES = {
       tag2: "禁菸",
       tag3: "全年無休",
       tag4: "共56席",
-      tag5: "請直接洽詢店家",
-      menu: []
+      tag5: "有包廂",
+      menu: [
+          { name: "澳洲產生羊肉", price: "¥800" },
+          { name: "鹽味成吉思汗烤肉", price: "¥800" },
+          { name: "醃漬成吉思汗烤肉", price: "¥800" },
+          { name: "北海道赤平產生羊肉", price: "¥1,700" },
+          { name: "北海道赤平產生羊里肌", price: "¥2,000" },
+          { name: "吃喝到飽宴會套餐90分鐘", price: "¥5,500" }
+        ]
       },
       ko: {
       heroTag: "징기스칸",
@@ -5249,8 +5270,15 @@ const STORES = {
       tag2: "금연",
       tag3: "연중무휴",
       tag4: "전 56석",
-      tag5: "매장에 직접 문의해 주세요",
-      menu: []
+      tag5: "개인실 있음",
+      menu: [
+          { name: "호주산 생램", price: "¥800" },
+          { name: "소금 징기스칸", price: "¥800" },
+          { name: "양념 징기스칸", price: "¥800" },
+          { name: "홋카이도 아카비라산 생램", price: "¥1,700" },
+          { name: "홋카이도 아카비라산 생램 로스", price: "¥2,000" },
+          { name: "무제한 식사·음료 연회 코스 90분", price: "¥5,500" }
+        ]
       },
       th: {
       heroTag: "จินกิสข่าน",
@@ -5276,8 +5304,15 @@ const STORES = {
       tag2: "ห้ามสูบบุหรี่",
       tag3: "เปิดทุกวัน",
       tag4: "56 ที่นั่ง",
-      tag5: "กรุณาสอบถามร้านโดยตรง",
-      menu: []
+      tag5: "มีห้องส่วนตัว",
+      menu: [
+          { name: "เนื้อแกะสดจากออสเตรเลีย", price: "¥800" },
+          { name: "จินกิสข่านรสเกลือ", price: "¥800" },
+          { name: "จินกิสข่านหมักซอส", price: "¥800" },
+          { name: "เนื้อแกะสดอาคาบิระ ฮอกไกโด", price: "¥1,700" },
+          { name: "โลอินเนื้อแกะสดอาคาบิระ ฮอกไกโด", price: "¥2,000" },
+          { name: "คอร์สปาร์ตี้บุฟเฟต์อาหารและเครื่องดื่ม 90 นาที", price: "¥5,500" }
+        ]
       }
     }
   }
