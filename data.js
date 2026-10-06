@@ -9312,6 +9312,7 @@ const STORES = {
   "kitanoutage": {
     heroImage: "images/kitanoutage_hero.jpg",
     menuImage: "images/kitanoutage_menu.jpg",
+    interiorImage: "images/kitanoutage_interior.jpg",
     tel: "",
     address: "北海道札幌市中央区南4条西3丁目 第2グリーンビル3F",
     accessNote: false,
