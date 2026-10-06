@@ -4398,6 +4398,7 @@ const STORES = {
 
   ,
   "raamensora": {
+    heroImage: "images/raamensora_hero.jpg",
     tel: "011-596-0331",
     address: "北海道札幌市中央区南3条西5丁目 ノルベサ1F",
     accessNote: false,
@@ -4414,7 +4415,7 @@ const STORES = {
       areaValue: "すすきの 南3条西5丁目",
       seatValue: "43席",
       couponMain: "トッピング（200円以下）無料",
-      couponNote: "",
+      couponNote: "1組1回1枚／他券・他サービス併用不可／テイクアウト不可／譲渡・転売不可",
       couponExpiry: "有効期限 2027年1月31日まで",
       addressText: "北海道札幌市中央区南3条西5丁目 ノルベサ1F",
       hoursText: "11:00〜翌3:00（金・土〜翌3:00、日〜翌1:00）",
@@ -4431,7 +4432,12 @@ const STORES = {
       tag5: "個室なし",
       menu: [
           { name: "ラーメン", desc: "味噌・塩・醤油", price: "1,100円" },
-          { name: "チャーシュー麺", desc: "味噌・塩・醤油", price: "1,450円" }
+          { name: "チャーシュー麺", desc: "味噌・塩・醤油", price: "1,550円" },
+          { name: "焼きネギ辛塩ラーメン", price: "1,450円" },
+          { name: "バターコーンラーメン", price: "1,450円" },
+          { name: "辛味噌ラーメン", price: "1,250円" },
+          { name: "全部のせラーメン", price: "1,600円" },
+          { name: "トッピング（各）", price: "150円～" }
         ]
       },
       en: {
@@ -4444,7 +4450,7 @@ const STORES = {
       areaValue: "Susukino, Minami 3 Nishi 5",
       seatValue: "43 seats",
       couponMain: "One Free Topping (up to ¥200)",
-      couponNote: "",
+      couponNote: "One per group, once only. Cannot be combined with other coupons or services. Not valid for takeout. Non-transferable; no resale.",
       couponExpiry: "Valid until January 31, 2027",
       addressText: "1F Norbesa, Minami 3 Nishi 5, Chuo-ku, Sapporo, Hokkaido",
       hoursText: "11:00–3:00 next day (Fri/Sat until 3:00, Sun until 1:00)",
@@ -4461,7 +4467,12 @@ const STORES = {
       tag5: "No Private Room",
       menu: [
           { name: "Ramen", desc: "Miso, salt, or soy sauce", price: "¥1,100" },
-          { name: "Chashu Ramen", desc: "Miso, salt, or soy sauce", price: "¥1,450" }
+          { name: "Chashu Ramen", desc: "Miso, salt, or soy sauce", price: "¥1,550" },
+          { name: "Grilled Green Onion Spicy Salt Ramen", price: "¥1,450" },
+          { name: "Butter Corn Ramen", price: "¥1,450" },
+          { name: "Spicy Miso Ramen", price: "¥1,250" },
+          { name: "Everything Topping Ramen", price: "¥1,600" },
+          { name: "Toppings (each)", price: "From ¥150" }
         ]
       },
       "zh-Hant": {
@@ -4474,7 +4485,7 @@ const STORES = {
       areaValue: "薄野 南3條西5丁目",
       seatValue: "43席",
       couponMain: "免費加料（200円以下）",
-      couponNote: "",
+      couponNote: "每組限用1次1張／不可與其他優惠券或服務併用／外帶不適用／不可轉讓、轉售",
       couponExpiry: "有效期限至2027年1月31日",
       addressText: "北海道札幌市中央區南3條西5丁目 Norbesa 1F",
       hoursText: "11:00～隔日3:00（五・六～隔日3:00，日～隔日1:00）",
@@ -4491,7 +4502,12 @@ const STORES = {
       tag5: "無包廂",
       menu: [
           { name: "拉麵", desc: "味噌・鹽味・醬油", price: "¥1,100" },
-          { name: "叉燒麵", desc: "味噌・鹽味・醬油", price: "¥1,450" }
+          { name: "叉燒麵", desc: "味噌・鹽味・醬油", price: "¥1,550" },
+          { name: "烤蔥辣鹽拉麵", price: "¥1,450" },
+          { name: "奶油玉米拉麵", price: "¥1,450" },
+          { name: "辣味噌拉麵", price: "¥1,250" },
+          { name: "全配料拉麵", price: "¥1,600" },
+          { name: "加料（每種）", price: "¥150起" }
         ]
       },
       ko: {
@@ -4504,7 +4520,7 @@ const STORES = {
       areaValue: "스스키노 미나미3조니시5초메",
       seatValue: "43석",
       couponMain: "토핑(200엔 이하) 무료",
-      couponNote: "",
+      couponNote: "1팀 1회 1장 / 타 쿠폰·서비스와 중복 사용 불가 / 포장 불가 / 양도·재판매 불가",
       couponExpiry: "유효기간 2027년 1월 31일까지",
       addressText: "홋카이도 삿포로시 주오구 미나미3조니시5초메 노르베사 1F",
       hoursText: "11:00~다음날3:00(금・토~다음날3:00, 일~다음날1:00)",
@@ -4521,7 +4537,12 @@ const STORES = {
       tag5: "개인실 없음",
       menu: [
           { name: "라멘", desc: "미소・소금・간장", price: "¥1,100" },
-          { name: "차슈멘", desc: "미소・소금・간장", price: "¥1,450" }
+          { name: "차슈멘", desc: "미소・소금・간장", price: "¥1,550" },
+          { name: "구운 파 매운 소금 라멘", price: "¥1,450" },
+          { name: "버터 콘 라멘", price: "¥1,450" },
+          { name: "매운 미소 라멘", price: "¥1,250" },
+          { name: "토핑 올 라멘", price: "¥1,600" },
+          { name: "토핑 (각)", price: "¥150~" }
         ]
       },
       th: {
@@ -4534,7 +4555,7 @@ const STORES = {
       areaValue: "ซูซูกิโนะ มินามิ3 นิชิ5",
       seatValue: "43 ที่นั่ง",
       couponMain: "ท็อปปิ้งฟรี (ไม่เกิน ¥200)",
-      couponNote: "",
+      couponNote: "กลุ่มละ 1 ครั้ง 1 ใบ / ไม่สามารถใช้ร่วมกับคูปองหรือบริการอื่น / ไม่รวมสั่งกลับบ้าน / ห้ามโอนหรือขายต่อ",
       couponExpiry: "ใช้ได้ถึง 31 มกราคม 2027",
       addressText: "ฮอกไกโด ซัปโปโร เขตชูโอ มินามิ3 นิชิ5 อาคาร Norbesa ชั้น 1",
       hoursText: "11:00 - 3:00 (ศุกร์-เสาร์ถึง 3:00, อาทิตย์ถึง 1:00)",
@@ -4551,7 +4572,12 @@ const STORES = {
       tag5: "ไม่มีห้องส่วนตัว",
       menu: [
           { name: "ราเมง", desc: "มิโซะ・เกลือ・ซีอิ๊ว", price: "¥1,100" },
-          { name: "ราเมงหมูชาชู", desc: "มิโซะ・เกลือ・ซีอิ๊ว", price: "¥1,450" }
+          { name: "ราเมงหมูชาชู", desc: "มิโซะ・เกลือ・ซีอิ๊ว", price: "¥1,550" },
+          { name: "ราเมงเกลือเผ็ดต้นหอมย่าง", price: "¥1,450" },
+          { name: "ราเมงเนยข้าวโพด", price: "¥1,450" },
+          { name: "ราเมงมิโซะเผ็ด", price: "¥1,250" },
+          { name: "ราเมงท็อปปิ้งทุกอย่าง", price: "¥1,600" },
+          { name: "ท็อปปิ้ง (ต่อชนิด)", price: "เริ่มต้น ¥150" }
         ]
       }
     }
