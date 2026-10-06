@@ -5529,17 +5529,25 @@ const STORES = {
       addressText: "北海道札幌市中央区南4条西5丁目1-1 レストランプラザ札幌2F",
       hoursText: "11:00〜15:00（L.O.14:30）、17:00〜22:30（L.O.22:00）",
       closedText: "無休",
-      cardText: "可",
-      emoneyText: "要確認（お問い合わせください）",
-      qrText: "要確認（お問い合わせください）",
+      cardText: "可（VISA・Master・JCB・アメックス・Diners・UnionPay）",
+      emoneyText: "可（交通系電子マネー（Suicaなど）・楽天Edy・nanaco・WAON・iD・QUICPay）",
+      qrText: "利用不可",
       smokeText: "禁煙",
       halalText: "要確認（お問い合わせください）",
-      tag1: "カード決済対応",
+      tag1: "カード・電子マネー決済対応",
       tag2: "禁煙",
       tag3: "無休",
       tag4: "全120席",
-      tag5: "要確認（お問い合わせください）",
-      menu: []
+      tag5: "個室なし",
+      menu: [
+          { name: "エビチリ", price: "1,380円" },
+          { name: "小籠包（3個）", price: "680円" },
+          { name: "青島豆腐麻辣味", price: "1,680円" },
+          { name: "晩酌セット", price: "2,000円" },
+          { name: "青島御膳", desc: "ウーロン茶付き", price: "2,000円" },
+          { name: "麺飯セット", price: "1,800円" },
+          { name: "120分食べ飲み放題", price: "6,000円～" }
+        ]
       },
       en: {
       heroTag: "Chinese Cuisine",
@@ -5556,17 +5564,25 @@ const STORES = {
       addressText: "2F Restaurant Plaza Sapporo, Minami 4 Nishi 5-1-1, Chuo-ku, Sapporo, Hokkaido",
       hoursText: "11:00–15:00 (LO 14:30), 17:00–22:30 (LO 22:00)",
       closedText: "Open every day",
-      cardText: "Accepted",
-      emoneyText: "Please inquire directly",
-      qrText: "Please inquire directly",
+      cardText: "Accepted (VISA, Mastercard, JCB, American Express, Diners Club, UnionPay)",
+      emoneyText: "Accepted (transit e-money such as Suica, Rakuten Edy, nanaco, WAON, iD, QUICPay)",
+      qrText: "Not accepted",
       smokeText: "No smoking",
       halalText: "Please inquire directly",
-      tag1: "Cards Accepted",
+      tag1: "Cards / E-money Accepted",
       tag2: "No Smoking",
       tag3: "Open Every Day",
       tag4: "120 Seats",
-      tag5: "Please inquire directly",
-      menu: []
+      tag5: "No Private Room",
+      menu: [
+          { name: "Shrimp in Chili Sauce", price: "¥1,380" },
+          { name: "Xiaolongbao (3 pcs)", price: "¥680" },
+          { name: "Qingdao Tofu, Mala Flavor", price: "¥1,680" },
+          { name: "Evening Drinks Set", price: "¥2,000" },
+          { name: "Qingdao Gozen (Set Meal)", desc: "Includes oolong tea", price: "¥2,000" },
+          { name: "Noodle & Rice Set", price: "¥1,800" },
+          { name: "120-min All-You-Can-Eat & Drink", price: "From ¥6,000" }
+        ]
       },
       "zh-Hant": {
       heroTag: "中國料理",
@@ -5583,17 +5599,25 @@ const STORES = {
       addressText: "北海道札幌市中央區南4條西5丁目1-1 Restaurant Plaza札幌2F",
       hoursText: "11:00～15:00（最後點餐14:30）、17:00～22:30（最後點餐22:00）",
       closedText: "全年無休",
-      cardText: "可使用",
-      emoneyText: "請直接洽詢店家",
-      qrText: "請直接洽詢店家",
+      cardText: "可使用（VISA・萬事達卡・JCB・美國運通・大來卡・銀聯）",
+      emoneyText: "可使用（交通類電子錢包（Suica等）・樂天Edy・nanaco・WAON・iD・QUICPay）",
+      qrText: "無法使用",
       smokeText: "禁菸",
       halalText: "請直接洽詢店家",
-      tag1: "可使用信用卡",
+      tag1: "可使用信用卡・電子錢包",
       tag2: "禁菸",
       tag3: "全年無休",
       tag4: "共120席",
-      tag5: "請直接洽詢店家",
-      menu: []
+      tag5: "無包廂",
+      menu: [
+          { name: "乾燒蝦仁", price: "¥1,380" },
+          { name: "小籠包（3個）", price: "¥680" },
+          { name: "青島麻辣豆腐", price: "¥1,680" },
+          { name: "小酌套餐", price: "¥2,000" },
+          { name: "青島御膳", desc: "附烏龍茶", price: "¥2,000" },
+          { name: "麵飯套餐", price: "¥1,800" },
+          { name: "120分鐘吃喝到飽", price: "¥6,000起" }
+        ]
       },
       ko: {
       heroTag: "중국요리",
@@ -5610,17 +5634,25 @@ const STORES = {
       addressText: "홋카이도 삿포로시 주오구 미나미4조니시5-1-1 레스토랑플라자삿포로 2F",
       hoursText: "11:00~15:00(라스트오더14:30), 17:00~22:30(라스트오더22:00)",
       closedText: "연중무휴",
-      cardText: "가능",
-      emoneyText: "매장에 직접 문의해 주세요",
-      qrText: "매장에 직접 문의해 주세요",
+      cardText: "가능 (VISA・Mastercard・JCB・American Express・Diners Club・유니온페이)",
+      emoneyText: "가능 (교통계 전자화폐(Suica 등)・라쿠텐Edy・nanaco・WAON・iD・QUICPay)",
+      qrText: "이용 불가",
       smokeText: "금연",
       halalText: "매장에 직접 문의해 주세요",
-      tag1: "카드 결제 가능",
+      tag1: "카드・전자화폐 결제 가능",
       tag2: "금연",
       tag3: "연중무휴",
       tag4: "전 120석",
-      tag5: "매장에 직접 문의해 주세요",
-      menu: []
+      tag5: "개인실 없음",
+      menu: [
+          { name: "에비칠리(칠리 새우)", price: "¥1,380" },
+          { name: "샤오롱바오 (3개)", price: "¥680" },
+          { name: "칭다오 마라 두부", price: "¥1,680" },
+          { name: "반주 세트", price: "¥2,000" },
+          { name: "칭다오 정식", desc: "우롱차 포함", price: "¥2,000" },
+          { name: "면·밥 세트", price: "¥1,800" },
+          { name: "120분 무제한 식사·음료", price: "¥6,000~" }
+        ]
       },
       th: {
       heroTag: "อาหารจีน",
@@ -5637,17 +5669,25 @@ const STORES = {
       addressText: "ฮอกไกโด ซัปโปโร เขตชูโอ มินามิ4 นิชิ5-1-1 อาคาร Restaurant Plaza ซัปโปโร ชั้น 2",
       hoursText: "11:00-15:00 (สั่งได้ถึง14:30), 17:00-22:30 (สั่งได้ถึง22:00)",
       closedText: "เปิดทุกวัน",
-      cardText: "รับบัตร",
-      emoneyText: "กรุณาสอบถามร้านโดยตรง",
-      qrText: "กรุณาสอบถามร้านโดยตรง",
+      cardText: "รับบัตร (VISA, Mastercard, JCB, American Express, Diners Club, UnionPay)",
+      emoneyText: "รับ (e-money ระบบขนส่งเช่น Suica, Rakuten Edy, nanaco, WAON, iD, QUICPay)",
+      qrText: "ไม่รับ",
       smokeText: "ห้ามสูบบุหรี่",
       halalText: "กรุณาสอบถามร้านโดยตรง",
-      tag1: "รับบัตรเครดิต",
+      tag1: "รับบัตร / e-money",
       tag2: "ห้ามสูบบุหรี่",
       tag3: "เปิดทุกวัน",
       tag4: "120 ที่นั่ง",
-      tag5: "กรุณาสอบถามร้านโดยตรง",
-      menu: []
+      tag5: "ไม่มีห้องส่วนตัว",
+      menu: [
+          { name: "กุ้งซอสพริก", price: "¥1,380" },
+          { name: "เสี่ยวหลงเปา (3 ลูก)", price: "¥680" },
+          { name: "เต้าหู้หม่าล่าสไตล์ชิงเต่า", price: "¥1,680" },
+          { name: "เซตดื่มยามเย็น", price: "¥2,000" },
+          { name: "ชุดอาหารชิงเต่า", desc: "พร้อมชาอูหลง", price: "¥2,000" },
+          { name: "เซตเส้นและข้าว", price: "¥1,800" },
+          { name: "บุฟเฟต์อาหารและเครื่องดื่ม 120 นาที", price: "เริ่มต้น ¥6,000" }
+        ]
       }
     }
   }
