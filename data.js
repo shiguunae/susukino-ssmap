@@ -4991,8 +4991,14 @@ const STORES = {
       tag2: "禁煙",
       tag3: "無休",
       tag4: "全56席",
-      tag5: "要確認（お問い合わせください）",
-      menu: []
+      tag5: "個室あり",
+      menu: [
+          { name: "食べ飲み放題90分", desc: "ラムしゃぶ、野菜、ラーメン、ライス、漬物、デザート付き", price: "5,500円" },
+          { name: "オーストラリア産ラム", price: "800円" },
+          { name: "知床産エゾシカ", price: "1,000円" },
+          { name: "白老牛リブロース", price: "3,000円" },
+          { name: "コース", price: "4,500円" }
+        ]
       },
       en: {
       heroTag: "Shabu-shabu",
@@ -5018,8 +5024,14 @@ const STORES = {
       tag2: "No smoking",
       tag3: "Open Every Day",
       tag4: "56 Seats",
-      tag5: "Please inquire directly",
-      menu: []
+      tag5: "Private Room Available",
+      menu: [
+          { name: "All-You-Can-Eat & Drink (90 min)", desc: "Includes lamb shabu-shabu, vegetables, ramen, rice, pickles, and dessert", price: "¥5,500" },
+          { name: "Australian Lamb", price: "¥800" },
+          { name: "Shiretoko Ezo Deer", price: "¥1,000" },
+          { name: "Shiraoi Beef Rib Loin", price: "¥3,000" },
+          { name: "Course", price: "¥4,500" }
+        ]
       },
       "zh-Hant": {
       heroTag: "涮涮鍋",
@@ -5045,8 +5057,14 @@ const STORES = {
       tag2: "禁菸",
       tag3: "全年無休",
       tag4: "共56席",
-      tag5: "請直接洽詢店家",
-      menu: []
+      tag5: "有包廂",
+      menu: [
+          { name: "吃喝到飽90分鐘", desc: "附羊肉涮涮鍋、蔬菜、拉麵、白飯、醃漬小菜、甜點", price: "¥5,500" },
+          { name: "澳洲產羊肉", price: "¥800" },
+          { name: "知床產蝦夷鹿", price: "¥1,000" },
+          { name: "白老牛肋眼", price: "¥3,000" },
+          { name: "套餐", price: "¥4,500" }
+        ]
       },
       ko: {
       heroTag: "샤부샤부",
@@ -5072,8 +5090,14 @@ const STORES = {
       tag2: "금연",
       tag3: "연중무휴",
       tag4: "전 56석",
-      tag5: "매장에 직접 문의해 주세요",
-      menu: []
+      tag5: "개인실 있음",
+      menu: [
+          { name: "무제한 식사·음료 90분", desc: "램 샤부샤부, 채소, 라멘, 밥, 절임, 디저트 포함", price: "¥5,500" },
+          { name: "호주산 램", price: "¥800" },
+          { name: "시레토코산 에조사슴", price: "¥1,000" },
+          { name: "시라오이 소고기 립로스", price: "¥3,000" },
+          { name: "코스", price: "¥4,500" }
+        ]
       },
       th: {
       heroTag: "ชาบูชาบู",
@@ -5099,8 +5123,14 @@ const STORES = {
       tag2: "ห้ามสูบบุหรี่",
       tag3: "เปิดทุกวัน",
       tag4: "56 ที่นั่ง",
-      tag5: "กรุณาสอบถามร้านโดยตรง",
-      menu: []
+      tag5: "มีห้องส่วนตัว",
+      menu: [
+          { name: "บุฟเฟต์อาหารและเครื่องดื่ม 90 นาที", desc: "รวมชาบูเนื้อแกะ ผัก ราเมง ข้าวสวย ผักดอง และของหวาน", price: "¥5,500" },
+          { name: "เนื้อแกะจากออสเตรเลีย", price: "¥800" },
+          { name: "กวางเอโซะจากชิเรโตโกะ", price: "¥1,000" },
+          { name: "ริบโลอินเนื้อชิราโออิ", price: "¥3,000" },
+          { name: "คอร์ส", price: "¥4,500" }
+        ]
       }
     }
   }
