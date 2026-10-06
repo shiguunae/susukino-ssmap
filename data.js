@@ -4961,6 +4961,7 @@ const STORES = {
 
   ,
   "shabushabupokke": {
+    heroImage: "images/shabushabupokke_hero.jpg",
     tel: "011-212-1629",
     address: "北海道札幌市中央区南3条西3 都ビル3F",
     accessNote: false,
