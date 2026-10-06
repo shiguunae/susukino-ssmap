@@ -5655,6 +5655,7 @@ const STORES = {
   ,
   "kudo-younikuten-1": {
     heroImage: "images/kudo-younikuten-1_hero.jpg",
+    interiorImage: "images/kudo-younikuten-1_interior.jpg",
     tel: "011-522-7229",
     address: "北海道札幌市中央区南5条西5丁目 ジャパンランドビル7F",
     accessNote: false,
