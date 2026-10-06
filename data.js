@@ -4110,7 +4110,7 @@ const STORES = {
           { name: "Broth-soaked Jingisukan", price: "¥1,100" },
           { name: "Hokkaido Lamb & Fresh Lamb Platter", price: "¥2,580" },
           { name: "Signature Lamb Yukke (Tartare)", price: "¥990" },
-          { name: "Lamb Fat Rice", price: "¥660" },
+          { name: "Rice Made for Lamb", price: "¥660" },
           { name: "Lamb Chops", price: "¥1,650" }
         ]
       },
@@ -4144,7 +4144,7 @@ const STORES = {
           { name: "高湯浸成吉思汗烤肉", price: "¥1,100" },
           { name: "道產羊肉＋生羊肉拼盤", price: "¥2,580" },
           { name: "招牌生羊肉塔塔", price: "¥990" },
-          { name: "羊油拌飯", price: "¥660" },
+          { name: "羊肉專用白飯", price: "¥660" },
           { name: "羊排", price: "¥1,650" }
         ]
       },
@@ -4212,7 +4212,7 @@ const STORES = {
           { name: "จินกิสข่านแช่น้ำซุป", price: "¥1,100" },
           { name: "แกะฮอกไกโด+แกะสดรวม", price: "¥2,580" },
           { name: "แกะยูกเกะขึ้นชื่อ", price: "¥990" },
-          { name: "ข้าวมันแกะ", price: "¥660" },
+          { name: "ข้าวสวยสำหรับทานคู่เนื้อแกะ", price: "¥660" },
           { name: "แกะช็อป", price: "¥1,650" }
         ]
       }
