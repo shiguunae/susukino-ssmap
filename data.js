@@ -6369,6 +6369,7 @@ const STORES = {
   }
   ,
   "baisennsya": {
+    heroImage: "images/baisennsya_hero.jpg",
     tel: "011-522-5868",
     address: "北海道札幌市中央区南5条西3丁目 N・グランデビル1F（元祖さっぽろラーメン横丁内）",
     accessNote: false,
