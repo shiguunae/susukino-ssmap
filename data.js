@@ -12,6 +12,7 @@ const STORES = {
     menuImage: "images/ezomaru_menu.jpg",
     interiorImage: "images/ezomaru_interior.jpg",
     address: "北海道札幌市中央区南5条西4丁目",
+    mapDestination: "蝦夷丸 すすきの店 北海道札幌市中央区南5条西4丁目",
     accessNote: false, // スプレッドシートに記載が無いため非表示
     is24h: false,
 
@@ -212,7 +213,7 @@ const STORES = {
     heroImage: "images/gotuboshinobutei-hero.jpg",
     menuImage: "images/gotuboshinobutei-menu.jpg",
     address: "北海道札幌市中央区南5条西3丁目10 ニューすすきのビル2階",
-    mapDestination: "5坪 忍亭 北海道札幌市中央区南5条西3丁目10 ニューすすきのビル2階",
+    mapDestination: "５坪 忍亭 北海道札幌市中央区南5条西3丁目10 ニューすすきのビル2階",
     accessNote: false,
     is24h: false,
 
@@ -400,7 +401,7 @@ const STORES = {
     tel: "011-513-3221",
     heroImage: "images/kiwamikai_hero.jpg",
     address: "北海道札幌市中央区南5条西4丁目 N・スタービル2F",
-    mapDestination: "焼肉 KIWAMI 塊 -Kai 北海道札幌市中央区南5条西4丁目 N・スタービル2F",
+    mapDestination: "焼肉 KIWAMI 塊 -Kai- 北海道札幌市中央区南5条西4丁目 N・スタービル2F",
     accessNote: false,
     is24h: false,
 
@@ -1488,7 +1489,7 @@ const STORES = {
   "ichibanbosi-kimura": {
     "tel": "011-512-1884",
     "address": "北海道札幌市中央区南6条西3丁目すすきの中央ビル9F",
-    "mapDestination": "一番星★きむら 北海道札幌市中央区南6条西3丁目すすきの中央ビル9F",
+    mapDestination: "一番星★きむら 北海道札幌市中央区南6条西3丁目すすきの中央ビル9F",
     "accessNote": false,
     "is24h": false,
     "i18n": {
@@ -1664,7 +1665,7 @@ const STORES = {
     "heroImage": "images/marugenramen_hero.jpg",
     "tel": "011-532-7001",
     "address": "北海道札幌市中央区南6条西3丁目すすきの中央ビル1F（ビル中）",
-    "mapDestination": "マルゲンラーメン 北海道札幌市中央区南6条西3丁目すすきの中央ビル1F",
+    mapDestination: "マルゲンラーメン 北海道札幌市中央区南6条西3丁目すすきの中央ビル1F",
     "accessNote": false,
     "is24h": false,
     "i18n": {
@@ -1851,7 +1852,7 @@ const STORES = {
     "interiorImage": "images/hokkaisyabusyabu_interior.jpg",
     "tel": "011-231-0384",
     "address": "北海道札幌市中央区南4条西4丁目恵愛ビル7F",
-    "mapDestination": "北国の味 北海しゃぶしゃぶ 北海道札幌市中央区南4条西4丁目恵愛ビル7F",
+    mapDestination: "北国の味 北海しゃぶしゃぶ 北海道札幌市中央区南4条西4丁目恵愛ビル7F",
     "accessNote": false,
     "is24h": false,
     "i18n": {
@@ -2013,6 +2014,7 @@ const STORES = {
     menuImage: "images/nemochan3_menu.jpg",
     tel: "011-252-9660",
     address: "北海道札幌市中央区南4条西3丁目 No.3グリーンビル1F",
+    mapDestination: "ネモちゃんランド3 北海道札幌市中央区南4条西3丁目 No.3グリーンビル1F",
     accessNote: false,
     is24h: false,
 
@@ -2200,6 +2202,7 @@ const STORES = {
     heroImage: "images/yakinikuitumokoko_hero.jpg",
     tel: "011-221-0601",
     address: "北海道札幌市中央区南３条西２丁目６　ＫＴ三条ビル B1F",
+    mapDestination: "札幌焼肉いつもここ すすきの本店 北海道札幌市中央区南３条西２丁目６　ＫＴ三条ビル B1F",
     accessNote: false,
     is24h: false,
 
@@ -2389,6 +2392,7 @@ const STORES = {
     interiorImage: "images/hinoki_interior.jpg",
     tel: "011-520-9100",
     address: "北海道札幌市中央区南5条西4丁目　N・センタービル 2F",
+    mapDestination: "ひのき 北海道札幌市中央区南5条西4丁目　N・センタービル 2F",
     accessNote: false,
     is24h: false,
 
@@ -2576,6 +2580,7 @@ const STORES = {
     heroImage: "images/mizubashou_hero.jpg",
     tel: "011-520-3929",
     address: "北海道札幌市中央区南5条西5丁目　美松タワービル 1F",
+    mapDestination: "水芭蕉 北海道札幌市中央区南5条西5丁目　美松タワービル 1F",
     accessNote: false,
     is24h: false,
 
@@ -2763,6 +2768,7 @@ const STORES = {
     heroImage: "images/toride_hero.jpg",
     tel: "011-511-1194",
     address: "北海道札幌市中央区南6条西4丁目　ポプラビル 1F",
+    mapDestination: "鳥で 北海道札幌市中央区南6条西4丁目　ポプラビル 1F",
     accessNote: false,
     is24h: false,
 
@@ -2950,6 +2956,7 @@ const STORES = {
     heroImage: "images/toriya1_hero.jpg",
     tel: "011-521-2011",
     address: "北海道札幌市中央区南5条西5丁目　第３旭観光ビル 1F",
+    mapDestination: "すすきの鳥屋 本店 北海道札幌市中央区南5条西5丁目　第３旭観光ビル 1F",
     accessNote: false,
     is24h: false,
 
@@ -3137,6 +3144,7 @@ const STORES = {
     heroImage: "images/toriya2_hero.jpg",
     tel: "011-521-2262",
     address: "北海道札幌市中央区南6条西3丁目 ニューオリンピアビル1F",
+    mapDestination: "すすきの鳥屋 駅前通り店 北海道札幌市中央区南6条西3丁目 ニューオリンピアビル1F",
     accessNote: false,
     is24h: false,
 
@@ -3324,6 +3332,7 @@ const STORES = {
     heroImage: "images/susukino-jingisukan_hero.jpg",
     tel: "011-512-2288",
     address: "北海道札幌市中央区南5条西6丁目　第3エイトビル 2F",
+    mapDestination: "すすきのジンギスカン 5条店 北海道札幌市中央区南5条西6丁目　第3エイトビル 2F",
     accessNote: false,
     is24h: false,
 
@@ -3505,6 +3514,7 @@ const STORES = {
     heroImage: "images/hachiagemonoten_hero.jpg",
     tel: "011-520-0008",
     address: "北海道札幌市中央区南6条西4丁目（東向き）",
+    mapDestination: "はち揚げ物店 北海道札幌市中央区南6条西4丁目",
     accessNote: false,
     is24h: false,
 
@@ -3687,6 +3697,7 @@ const STORES = {
     heroImage: "images/ryuuto_hero.jpg",
     tel: "011-513-1208",
     address: "北海道札幌市中央区南5条西5丁目 N・グランデビル2F（元祖さっぽろラーメン横丁内）",
+    mapDestination: "龍寿 北海道札幌市中央区南5条西5丁目 N・グランデビル2F",
     accessNote: false,
     is24h: false,
 
@@ -3864,6 +3875,7 @@ const STORES = {
     heroImage: "images/ichi_hero.jpg",
     tel: "011-600-6040",
     address: "北海道札幌市中央区南7条西6-2-12",
+    mapDestination: "壱 北海道札幌市中央区南7条西6-2-12",
     accessNote: false,
     is24h: false,
 
@@ -4046,6 +4058,7 @@ const STORES = {
     heroImage: "images/kaoru_hero.jpg",
     tel: "050-5486-2102",
     address: "北海道札幌市中央区南5条西5-13 美松タワービル2F",
+    mapDestination: "薫 北海道札幌市中央区南5条西5-13 美松タワービル2F",
     accessNote: false,
     is24h: false,
 
@@ -4223,6 +4236,7 @@ const STORES = {
     heroImage: "images/raamensora_hero.jpg",
     tel: "011-596-0331",
     address: "北海道札幌市中央区南3条西5丁目 ノルベサ1F",
+    mapDestination: "らーめん空 北海道札幌市中央区南3条西5丁目 ノルベサ1F",
     accessNote: false,
     is24h: false,
 
@@ -4411,6 +4425,7 @@ const STORES = {
     "menuImage": "images/rinndou_menu.jpg",
     tel: "011-600-0440",
     address: "北海道札幌市中央区南4条西4丁目4 LC拾五番館1階",
+    mapDestination: "麺匠 りんどう 札幌 北海道札幌市中央区南4条西4丁目4 LC拾五番館1階",
     accessNote: false,
     is24h: false,
 
@@ -4599,6 +4614,7 @@ const STORES = {
     "menuImage": "images/shin_raamenarata_menu.jpg",
     tel: "",
     address: "北海道札幌市中央区南4条西3丁目 キタコーS4ビル",
+    mapDestination: "シン・らあめん新 北海道札幌市中央区南4条西3丁目 キタコーS4ビル",
     accessNote: false,
     is24h: false,
 
@@ -4786,6 +4802,7 @@ const STORES = {
     heroImage: "images/shabushabupokke_hero.jpg",
     tel: "011-212-1629",
     address: "北海道札幌市中央区南3条西3 都ビル3F",
+    mapDestination: "北海しゃぶしゃぶ ポッケ 北海道札幌市中央区南3条西3 都ビル3F",
     accessNote: false,
     is24h: false,
 
@@ -4963,6 +4980,7 @@ const STORES = {
     heroImage: "images/zinngisukanpokke_hero.jpg",
     tel: "011-596-8929",
     address: "北海道札幌市中央区南3条西3 都ビル3F",
+    mapDestination: "炭火焼ジンギスカン ポッケ 北海道札幌市中央区南3条西3 都ビル3F",
     accessNote: false,
     is24h: false,
 
@@ -5147,6 +5165,7 @@ const STORES = {
     interiorImage: "images/kawamori_interior.jpg",
     tel: "011-596-6199",
     address: "北海道札幌市中央区南5条西4丁目7-1 エヌ.スクエア7F",
+    mapDestination: "肉匠 川もり すすきの 北海道札幌市中央区南5条西4丁目7-1 エヌ.スクエア7F",
     accessNote: false,
     is24h: false,
 
@@ -5334,6 +5353,7 @@ const STORES = {
     heroImage: "images/chintaohanten_hero.jpg",
     tel: "011-206-4545",
     address: "北海道札幌市中央区南4条西5丁目1-1 レストランプラザ札幌2F",
+    mapDestination: "青島飯店 すすきの店 北海道札幌市中央区南4条西5丁目1-1 レストランプラザ札幌2F",
     accessNote: false,
     is24h: false,
 
@@ -5522,6 +5542,7 @@ const STORES = {
     interiorImage: "images/kudo-younikuten-1_interior.jpg",
     tel: "011-200-9929",
     address: "北海道札幌市中央区南5条西5丁目 ジャパンランドビル7F",
+    mapDestination: "工藤羊肉店 本店 北海道札幌市中央区南5条西5丁目 ジャパンランドビル7F",
     accessNote: false,
     is24h: false,
 
@@ -5690,6 +5711,7 @@ const STORES = {
     interiorImage: "images/koropokkuru_interior.jpg",
     tel: "011-241-4646",
     address: "北海道札幌市中央区南4条西4丁目 松岡ビル3F",
+    mapDestination: "古艪帆来 北海道札幌市中央区南4条西4丁目 松岡ビル3F",
     accessNote: false,
     is24h: false,
 
@@ -5872,6 +5894,7 @@ const STORES = {
     interiorImage: "images/kudo-younikuten-2_interior.jpg",
     tel: "011-200-0329",
     address: "北海道札幌市中央区南5条西5丁目 メイプル通りビル1F",
+    mapDestination: "工藤羊肉店 2号店 北海道札幌市中央区南5条西5丁目 メイプル通りビル1F",
     accessNote: false,
     is24h: false,
 
@@ -6039,6 +6062,7 @@ const STORES = {
     interiorImage: "images/kudo-younikuten-3_interior.jpg",
     tel: "011-213-1429",
     address: "北海道札幌市中央区南5条西2丁目 オークラビル2F",
+    mapDestination: "工藤羊肉店 3号店 北海道札幌市中央区南5条西2丁目 オークラビル2F",
     accessNote: false,
     is24h: false,
 
@@ -6206,6 +6230,7 @@ const STORES = {
     interiorImage: "images/kudo-younikuten-kakoi_interior.jpg",
     tel: "011-522-7229",
     address: "北海道札幌市中央区南5条西5丁目 ジャパンランドビル7F",
+    mapDestination: "工藤羊肉店本店別邸KAKOI-囲- 北海道札幌市中央区南5条西5丁目 ジャパンランドビル7F",
     accessNote: false,
     is24h: false,
 
@@ -6372,6 +6397,7 @@ const STORES = {
     heroImage: "images/baisennsya_hero.jpg",
     tel: "011-522-5868",
     address: "北海道札幌市中央区南5条西3丁目 N・グランデビル1F（元祖さっぽろラーメン横丁内）",
+    mapDestination: "倍煎舎 北海道札幌市中央区南5条西3丁目 N・グランデビル1F",
     accessNote: false,
     is24h: false,
 
@@ -6540,6 +6566,7 @@ const STORES = {
     interiorImage: "images/ooumimonogatari_interior.jpg",
     tel: "011-520-2701",
     address: "北海道札幌市中央区南5条西3丁目 N・グランデビル2F",
+    mapDestination: "大海物語inすすきの 北海道札幌市中央区南5条西3丁目 N・グランデビル2F",
     accessNote: false,
     is24h: false,
 
@@ -6711,6 +6738,7 @@ const STORES = {
     heroImage: "images/hitoridekorerumon_hero.jpg",
     tel: "011-563-5804",
     address: "北海道札幌市中央区南6条西3丁目 ジョイフル酒肴小路1F",
+    mapDestination: "ひとりでこれるもん 北海道札幌市中央区南6条西3丁目 ジョイフル酒肴小路1F",
     accessNote: false,
     is24h: false,
 
@@ -6889,6 +6917,7 @@ const STORES = {
     interiorImage: "images/groundizakayafuji_interior.jpg",
     tel: "011-511-7131",
     address: "北海道札幌市中央区南5条西4丁目 富士会館ビル",
+    mapDestination: "グランド居酒屋富士 北海道札幌市中央区南5条西4丁目 富士会館ビル",
     accessNote: false,
     is24h: false,
 
@@ -7222,6 +7251,7 @@ const STORES = {
     interiorImage: "images/gyouzayamaokaya_interior.jpg",
     tel: "011-596-8257",
     address: "北海道札幌市中央区南4条西5丁目 第二秀高ビル1F",
+    mapDestination: "餃子の山岡家 すすきの店 北海道札幌市中央区南4条西5丁目 第二秀高ビル1F",
     accessNote: false,
     is24h: true,
 
@@ -7410,6 +7440,7 @@ const STORES = {
     interiorImage: "images/youshi_interior.jpg",
     tel: "011-205-3088",
     address: "北海道札幌市中央区南5条西3丁目 5・3ビル6F",
+    mapDestination: "羊師 北海道札幌市中央区南5条西3丁目 5・3ビル6F",
     accessNote: false,
     is24h: false,
 
@@ -7588,6 +7619,7 @@ const STORES = {
     interiorImage: "images/tsubame_interior.jpg",
     tel: "011-596-8294",
     address: "北海道札幌市中央区南5条西5丁目 55ビル2F",
+    mapDestination: "個室焼肉つばめ すすきの店 北海道札幌市中央区南5条西5丁目 55ビル2F",
     accessNote: false,
     is24h: false,
 
@@ -7775,6 +7807,7 @@ const STORES = {
     menuImage: "images/issenmannryou_menu.jpg",
     tel: "011-552-0707",
     address: "北海道札幌市中央区南5条西3丁目 中銀3番館ビルB1F",
+    mapDestination: "一鮮万漁 北海道札幌市中央区南5条西3丁目 中銀3番館ビルB1F",
     accessNote: false,
     is24h: false,
 
@@ -8402,6 +8435,7 @@ const STORES = {
     interiorImage: "images/honowa_interior.jpg",
     tel: "011-251-9898",
     address: "北海道札幌市中央区南3条西3丁目 G-DINING札幌 6F",
+    mapDestination: "ほのわ 北海道札幌市中央区南3条西3丁目 G-DINING札幌 6F",
     accessNote: false,
     is24h: false,
 
@@ -8590,6 +8624,7 @@ const STORES = {
     interiorImage: "images/akariya_interior.jpg",
     tel: "011-596-7474",
     address: "北海道札幌市中央区南7条西4 LC拾番館1F",
+    mapDestination: "明かり家 北海道札幌市中央区南7条西4 LC拾番館1F",
     accessNote: false,
     is24h: false,
 
@@ -8778,6 +8813,7 @@ const STORES = {
     interiorImage: "images/taisyu_interior.jpg",
     tel: "011-513-8002",
     address: "北海道札幌市中央区南5条西2丁目 オークラビル5F",
+    mapDestination: "対州 北海道札幌市中央区南5条西2丁目 オークラビル5F",
     accessNote: false,
     is24h: false,
 
@@ -8956,6 +8992,7 @@ const STORES = {
     interiorImage: "images/saki_interior.jpg",
     tel: "011-219-8338",
     address: "北海道札幌市中央区南3条西3丁目 G-DINING札幌 6F",
+    mapDestination: "咲 北海道札幌市中央区南3条西3丁目 G-DINING札幌 6F",
     accessNote: false,
     is24h: false,
 
@@ -9138,6 +9175,7 @@ const STORES = {
     menuImage: "images/jin_menu.jpg",
     tel: "011-206-7977",
     address: "北海道札幌市中央区南3条西6丁目 インフィニ桂和22 8F",
+    mapDestination: "仁（jin） 北海道札幌市中央区南3条西6丁目 インフィニ桂和22 8F",
     accessNote: false,
     is24h: false,
 
@@ -9316,6 +9354,7 @@ const STORES = {
     interiorImage: "images/kitanoutage_interior.jpg",
     tel: "080-4739-7037",
     address: "北海道札幌市中央区南4条西3丁目 第2グリーンビル3F",
+    mapDestination: "北の宴 北海道札幌市中央区南4条西3丁目 第2グリーンビル3F",
     accessNote: false,
     is24h: false,
 
@@ -9504,6 +9543,7 @@ const STORES = {
     interiorImage: "images/wadaidokoroyashiki_interior.jpg",
     tel: "011-600-3039",
     address: "北海道札幌市中央区南4条西5丁目 第4藤井ビル3F",
+    mapDestination: "和台所やしき 北海道札幌市中央区南4条西5丁目 第4藤井ビル3F",
     accessNote: false,
     is24h: false,
 
@@ -9671,6 +9711,7 @@ const STORES = {
     menuImage: "images/susukinodepart_menu.jpg",
     tel: "011-206-4175",
     address: "北海道札幌市中央区南5条西2丁目2 サイバーシティービル2F",
+    mapDestination: "ススキノデパート 北海道札幌市中央区南5条西2丁目2 サイバーシティービル2F",
     accessNote: false,
     is24h: false,
 
@@ -9844,6 +9885,7 @@ const STORES = {
     interiorImage: "images/gotsuboshinobutei_interior.jpg",
     tel: "011-590-4355",
     address: "北海道札幌市中央区南5条西3丁目 ニューすすきのビル2F",
+    mapDestination: "5坪 忍亭 北海道札幌市中央区南5条西3丁目 ニューすすきのビル2F",
     accessNote: false,
     is24h: false,
 
@@ -10031,6 +10073,7 @@ const STORES = {
     menuImage: "images/ezokamuy_menu.jpg",
     tel: "011-600-0501",
     address: "北海道札幌市中央区南6条西3丁目 秋水ビル3F",
+    mapDestination: "エゾカムイ 北海道札幌市中央区南6条西3丁目 秋水ビル3F",
     accessNote: false,
     is24h: false,
 
