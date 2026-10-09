@@ -4461,7 +4461,7 @@ const STORES = {
           { name: "海老辛味噌ラーメン", price: "1,250円" },
           { name: "辛味噌ラーメン", price: "1,200円" },
           { name: "餃子", price: "500円" },
-          { name: "牛タンカレー", price: "450円" },
+          { name: "牛タンカレー", price: "500円" },
           { name: "トッピング（各）", price: "100円～" }
         ]
       },
@@ -4496,7 +4496,7 @@ const STORES = {
           { name: "Spicy Shrimp Miso Ramen", price: "¥1,250" },
           { name: "Spicy Miso Ramen", price: "¥1,200" },
           { name: "Gyoza", price: "¥500" },
-          { name: "Beef Tongue Curry", price: "¥450" },
+          { name: "Beef Tongue Curry", price: "¥500" },
           { name: "Toppings (each)", price: "From ¥100" }
         ]
       },
@@ -4531,7 +4531,7 @@ const STORES = {
           { name: "蝦辣味噌拉麵", price: "¥1,250" },
           { name: "辣味噌拉麵", price: "¥1,200" },
           { name: "煎餃", price: "¥500" },
-          { name: "牛舌咖哩", price: "¥450" },
+          { name: "牛舌咖哩", price: "¥500" },
           { name: "加料（每種）", price: "¥100起" }
         ]
       },
@@ -4566,7 +4566,7 @@ const STORES = {
           { name: "새우 매운 미소 라멘", price: "¥1,250" },
           { name: "매운 미소 라멘", price: "¥1,200" },
           { name: "교자", price: "¥500" },
-          { name: "우설 카레", price: "¥450" },
+          { name: "우설 카레", price: "¥500" },
           { name: "토핑 (각)", price: "¥100~" }
         ]
       },
@@ -4601,7 +4601,7 @@ const STORES = {
           { name: "ราเมงมิโซะเผ็ดกุ้ง", price: "¥1,250" },
           { name: "ราเมงมิโซะเผ็ด", price: "¥1,200" },
           { name: "เกี๊ยวซ่า", price: "¥500" },
-          { name: "แกงกะหรี่ลิ้นวัว", price: "¥450" },
+          { name: "แกงกะหรี่ลิ้นวัว", price: "¥500" },
           { name: "ท็อปปิ้ง (ต่อชนิด)", price: "เริ่มต้น ¥100" }
         ]
       }
