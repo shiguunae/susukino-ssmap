@@ -1861,7 +1861,7 @@ const STORES = {
         "heroEyebrow": "しゃぶしゃぶ",
         "heroKana": "キタグニノアジ　ホッカイシャブシャブ",
         "heroTitle": "北国の味　北海しゃぶしゃぶ",
-        "heroSub": "秘伝のタレと臭みのないラム肉、地元客にも愛される人気の元祖ラムしゃぶの店",
+        "heroSub": "秘伝のタレと臭みのないラム肉、地元客にも愛される人気の元祖ラムしゃぶの店\nすすきの駅直結でアクセス抜群",
         "budgetValue": "5,000円～6,000円",
         "areaValue": "すすきの 南4条西4丁目",
         "seatValue": "100席",
@@ -1882,8 +1882,8 @@ const STORES = {
         "tag4": "全100席",
         "tag5": "個室あり",
         "menu": [
-            { name: "北海しゃぶしゃぶ鍋食べ放題", desc: "ラムしゃぶ、豚しゃぶ、野菜、おにぎり、お新香、ラーメン（飲み放題付は7,000円）", price: "5,600円　" },
-            { name: "お刺身付き食べ飲み放題コース", price: "8,500円　" }
+            { name: "北海しゃぶしゃぶ鍋食べ放題", desc: "ラムしゃぶ、豚しゃぶ、野菜、おにぎり、お新香、ラーメン（飲み放題付は7,000円）", price: "5,600円" },
+            { name: "お刺身付き食べ飲み放題コース", price: "8,500円" }
           ]
       },
       "en": {
@@ -1891,7 +1891,7 @@ const STORES = {
         "heroEyebrow": "Shabu-shabu",
         "heroKana": "Kitaguni no Aji Hokkai Shabu-Shabu",
         "heroTitle": "Kitaguni no Aji Hokkai Shabu-Shabu",
-        "heroSub": "Secret sauce and odor-free lamb. The original lamb shabu-shabu shop, loved even by locals",
+        "heroSub": "Secret sauce and odor-free lamb. The original lamb shabu-shabu shop, loved even by locals.\nDirectly connected to Susukino Station for excellent access.",
         "budgetValue": "¥5,000–6,000",
         "areaValue": "Susukino, Minami 4 Nishi 4",
         "seatValue": "100 seats",
@@ -1921,7 +1921,7 @@ const STORES = {
         "heroEyebrow": "涮涮鍋",
         "heroKana": "Kitaguni no Aji Hokkai Shabu-Shabu",
         "heroTitle": "北國之味 北海涮涮鍋",
-        "heroSub": "祕傳醬汁與無腥味的羊肉，深受當地人喜愛的元祖羊肉涮涮鍋名店",
+        "heroSub": "秘傳醬汁與無腥味的羊肉，連當地客人也喜愛的人氣元祖羊肉涮涮鍋名店。\n與薄野站直通，交通超便利。",
         "budgetValue": "5,000～6,000円",
         "areaValue": "薄野 南4條西4丁目",
         "seatValue": "100席",
@@ -1951,7 +1951,7 @@ const STORES = {
         "heroEyebrow": "샤부샤부",
         "heroKana": "기타구니노 아지 홋카이 샤부샤부",
         "heroTitle": "기타구니노 아지 홋카이 샤부샤부",
-        "heroSub": "비전의 소스와 잡내 없는 램고기, 현지 손님에게도 사랑받는 원조 램 샤부샤부 전문점",
+        "heroSub": "비전의 소스와 잡내 없는 램고기, 현지 손님들에게도 사랑받는 인기 원조 램 샤부샤부 전문점.\n스스키노역 직결로 접근성 최고.",
         "budgetValue": "5,000엔~6,000엔",
         "areaValue": "스스키노 미나미4조니시4초메",
         "seatValue": "100석",
@@ -1981,7 +1981,7 @@ const STORES = {
         "heroEyebrow": "ชาบูชาบู",
         "heroKana": "Kitaguni no Aji Hokkai Shabu-Shabu",
         "heroTitle": "คิตะกุนิโนะอาจิ ฮกไกชาบูชาบู",
-        "heroSub": "น้ำจิ้มสูตรลับและเนื้อแกะไม่มีกลิ่นสาบ ร้านชาบูเนื้อแกะต้นตำรับที่คนท้องถิ่นก็รัก",
+        "heroSub": "น้ำจิ้มสูตรลับและเนื้อแกะไร้กลิ่นสาบ ร้านต้นตำรับลัมบ์ชาบูยอดนิยมที่ชาวท้องถิ่นก็รัก\nเชื่อมต่อตรงกับสถานีซูซูกิโนะ เดินทางสะดวกมาก",
         "budgetValue": "¥5,000-6,000",
         "areaValue": "ซูซูกิโนะ มินามิ4 นิชิ4",
         "seatValue": "100 ที่นั่ง",
