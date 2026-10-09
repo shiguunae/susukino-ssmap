@@ -6598,7 +6598,7 @@ const STORES = {
       tag5: "個室あり",
       menu: [
           { name: "お通し（自慢の舟盛り＋蟹盛り）", price: "3,760円～" },
-          { name: "国産もつ煮込み", price: "1,280円" },
+          { name: "国産牛もつ煮込み", price: "1,280円" },
           { name: "貝カキ焼", price: "780円" },
           { name: "真鯛のあら汁", price: "880円" }
         ]
@@ -6630,7 +6630,7 @@ const STORES = {
       tag5: "Private Room Available",
       menu: [
           { name: "Otoshi (Signature Boat Platter + Crab Platter)", price: "From ¥3,760" },
-          { name: "Domestic Motsu (Offal) Stew", price: "¥1,280" },
+          { name: "Domestic Beef Motsu (Offal) Stew", price: "¥1,280" },
           { name: "Grilled Shellfish & Oysters", price: "¥780" },
           { name: "Red Sea Bream Arajiru (Miso Soup)", price: "¥880" }
         ]
@@ -6662,7 +6662,7 @@ const STORES = {
       tag5: "有包廂",
       menu: [
           { name: "小菜（招牌船盛＋螃蟹拼盤）", price: "¥3,760起" },
-          { name: "國產內臟燉煮", price: "¥1,280" },
+          { name: "國產牛內臟燉煮", price: "¥1,280" },
           { name: "烤貝類牡蠣", price: "¥780" },
           { name: "真鯛魚雜味噌湯", price: "¥880" }
         ]
@@ -6694,7 +6694,7 @@ const STORES = {
       tag5: "개인실 있음",
       menu: [
           { name: "기본 안주 (자랑의 후나모리＋게 모둠)", price: "¥3,760~" },
-          { name: "국산 모쓰 조림", price: "¥1,280" },
+          { name: "국산 소 모쓰 조림", price: "¥1,280" },
           { name: "조개·굴 구이", price: "¥780" },
           { name: "참돔 아라지루(생선 뼈 국)", price: "¥880" }
         ]
@@ -6726,7 +6726,7 @@ const STORES = {
       tag5: "มีห้องส่วนตัว",
       menu: [
           { name: "โอโทชิ (เรือซาชิมิสุดภูมิใจ＋จานปู)", price: "เริ่มต้น ¥3,760" },
-          { name: "เครื่องในต้มในประเทศ", price: "¥1,280" },
+          { name: "เครื่องในวัวต้มในประเทศ", price: "¥1,280" },
           { name: "หอยและหอยนางรมย่าง", price: "¥780" },
           { name: "ซุปหัวและก้างปลาทะเลหัวมัน (อาราจิรุ)", price: "¥880" }
         ]
