@@ -1312,16 +1312,16 @@ const STORES = {
     interiorImage: "images/chokottosusi-honntenn_interior.jpg",
     tel: "011-522-0399",
     address: "北海道札幌市中央区南4条西3丁目第2グリーンビル1F",
-    mapDestination: "ちょこっと鮨 本店 北海道札幌市中央区南4条西3丁目第2グリーンビル1F",
+    mapDestination: "ちょこっと寿し 本店 北海道札幌市中央区南4条西3丁目第2グリーンビル1F",
     accessNote: false,
     is24h: false,
 
     i18n: {
       ja: {
         heroTag: "寿司",
-        heroEyebrow: "寿司",
+        heroEyebrow: "寿司 立喰い処",
         heroKana: "チョコットスシホンテン",
-        heroTitle: "ちょこっと鮨　本店",
+        heroTitle: "ちょこっと寿し　本店",
         heroSub: "にぎり寿し1貫69円〜！ススキノで愛され17年。大人数から女性お一人様まで大歓迎！！",
         budgetValue: "2,000円～3,000円",
         areaValue: "すすきの 南4条西3丁目",
@@ -1339,20 +1339,20 @@ const STORES = {
         tag1: "カード・電子マネー・QRコード決済対応",
         tag2: "禁煙",
         tag3: "水・第3火休",
-        tag4: "全13席",
+        tag4: "全9席",
         tag5: "個室なし",
         menu: [
           { name: "日替わり", price: "69円〜" },
-          { name: "ちょこっと寿司堪能", price: "3,300円　" },
+          { name: "ちょこっと寿司堪能", price: "3,300円" },
           { name: "天ぷら", price: "80円〜" },
-          { name: "本日のお任せ握り", price: "1,780円　" },
-          { name: "刺身3種盛", price: "1,280円　" },
-          { name: "穴子のささやき", price: "1,280円　" }
+          { name: "本日のお任せ握り", price: "1,780円" },
+          { name: "刺身3種盛", price: "1,280円" },
+          { name: "穴子のささやき", price: "1,280円" }
         ]
       },
       en: {
         heroTag: "Sushi",
-        heroEyebrow: "Sushi",
+        heroEyebrow: "Sushi Standing Bar",
         heroKana: "Chokotto Sushi Honten",
         heroTitle: "Chokotto Sushi Honten",
         heroSub: "Nigiri sushi from just \u00a569 a piece! Loved in Susukino for 17 years. Great for large groups and solo female diners alike!",
@@ -1372,7 +1372,7 @@ const STORES = {
         tag1: "Cards / E-money / QR Code Payment Accepted",
         tag2: "No Smoking",
         tag3: "Closed Wed & 3rd Tue",
-        tag4: "13 Seats",
+        tag4: "9 Seats",
         tag5: "No Private Room",
         menu: [
           { name: "Daily Special", price: "From \u00a569" },
@@ -1385,7 +1385,7 @@ const STORES = {
       },
       "zh-Hant": {
         heroTag: "壽司",
-        heroEyebrow: "壽司",
+        heroEyebrow: "壽司 站食處",
         heroKana: "Chokotto Sushi Honten",
         heroTitle: "Chokotto壽司 本店",
         heroSub: "握壽司1貫69円起！深受薄野喜愛17年。無論多人聚會或女性單獨用餐都歡迎！",
@@ -1405,7 +1405,7 @@ const STORES = {
         tag1: "信用卡・電子錢包・QR Code支付皆可",
         tag2: "禁菸",
         tag3: "週三・第3週二休",
-        tag4: "共13席",
+        tag4: "共9席",
         tag5: "無包廂",
         menu: [
           { name: "每日精選", price: "¥69起" },
@@ -1418,7 +1418,7 @@ const STORES = {
       },
       ko: {
         heroTag: "스시",
-        heroEyebrow: "스시",
+        heroEyebrow: "스시 서서 먹는 가게",
         heroKana: "초콧토 스시 혼텐",
         heroTitle: "초콧토 스시 본점",
         heroSub: "니기리 스시 1관 69엔부터! 스스키노에서 사랑받은 17년. 단체부터 여성 혼자서도 대환영!!",
@@ -1438,7 +1438,7 @@ const STORES = {
         tag1: "카드・전자화폐・QR코드 결제 가능",
         tag2: "금연",
         tag3: "수・셋째 화 휴무",
-        tag4: "전 13석",
+        tag4: "전 9석",
         tag5: "개인실 없음",
         menu: [
           { name: "히가와리(일일특선)", price: "69엔~" },
@@ -1451,7 +1451,7 @@ const STORES = {
       },
       th: {
         heroTag: "\u0e0b\u0e39\u0e0a\u0e34",
-        heroEyebrow: "\u0e0b\u0e39\u0e0a\u0e34",
+        heroEyebrow: "ซูชิ ยืนกิน",
         heroKana: "Chokotto Sushi Honten",
         heroTitle: "Chokotto Sushi Honten",
         heroSub: "นิกิริซูชิเริ่มต้น ¥69 ต่อคำ! เป็นที่รักในซูซูกิโนะมา 17 ปี เหมาะทั้งกลุ่มใหญ่และผู้หญิงมาคนเดียว!!",
@@ -1471,7 +1471,7 @@ const STORES = {
         tag1: "บัตร / e-money / QR Code",
         tag2: "ห้ามสูบบุหรี่",
         tag3: "ปิดพุธ・อังคารที่3",
-        tag4: "13 ที่นั่ง",
+        tag4: "9 ที่นั่ง",
         tag5: "ไม่มีห้องส่วนตัว",
         menu: [
           { name: "เมนูประจำวัน", price: "เริ่มต้น ¥69" },
