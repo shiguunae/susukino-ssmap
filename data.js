@@ -1133,7 +1133,7 @@ const STORES = {
     interiorImage: "images/chokottosusi-bettei_interior.jpg",
     tel: "011-215-1001",
     address: "北海道札幌市中央区南5条西3丁目8 N・グランデビルB1",
-    mapDestination: "ちょこっと寿し キワミ別邸 北海道札幌市中央区南5条西3丁目8 N・グランデビルB1",
+    mapDestination: "ちょこっと寿し 別邸 北海道札幌市中央区南5条西3丁目8 N・グランデビルB1",
     accessNote: false,
     is24h: false,
 
@@ -1142,7 +1142,7 @@ const STORES = {
         heroTag: "寿司",
         heroEyebrow: "寿司",
         heroKana: "チョコットスシベッテイ",
-        heroTitle: "ちょこっと寿し キワミ別邸",
+        heroTitle: "ちょこっと寿し　別邸",
         heroSub: "いつもよりも”ちょこっと贅沢”な時間を。最北端の北海道と、最南端の沖縄の食材を使った料理をご賞味あれ",
         budgetValue: "8,000円～9,000円",
         areaValue: "すすきの 南5条西3丁目",
@@ -1160,22 +1160,22 @@ const STORES = {
         tag1: "カード・電子マネー・QRコード決済対応",
         tag2: "禁煙",
         tag3: "日・第3月曜休",
-        tag4: "全12席",
+        tag4: "全11席",
         tag5: "個室あり（半個室）",
         menu: [
-          { name: "ちょこっと鮨会席", price: "9,000円　" },
-          { name: "飲み放題付きちょこっと鮨会席", price: "12,000円　" },
-          { name: "厳選ちょこっと鮨会席", price: "12,000円　" },
-          { name: "飲み放題付厳選ちょこっと鮨会席", price: "15,000円　" },
-          { name: "本日のお任せ5貫握り", price: "2,500円　" },
-          { name: "たんかんジュース", price: "500円　" }
+          { name: "ちょこっと寿し会席", price: "9,000円" },
+          { name: "飲み放題付きちょこっと寿し会席", price: "12,000円" },
+          { name: "厳選ちょこっと寿し会席", price: "12,000円" },
+          { name: "飲み放題付厳選ちょこっと寿し会席", price: "15,000円" },
+          { name: "本日のお任せ5貫握り", price: "2,500円" },
+          { name: "たんかんジュース", price: "500円" }
         ]
       },
       en: {
         heroTag: "Sushi",
         heroEyebrow: "Sushi",
-        heroKana: "Chokotto Sushi Kiwami Bettei",
-        heroTitle: "Chokotto Sushi Kiwami Bettei",
+        heroKana: "Chokotto Sushi Bettei",
+        heroTitle: "Chokotto Sushi Bettei",
         heroSub: "A little more indulgent time than usual. Enjoy dishes made with ingredients from Hokkaido in the far north and Okinawa in the far south.",
         budgetValue: "¥8,000–9,000",
         areaValue: "Susukino, Minami 5 Nishi 3",
@@ -1193,7 +1193,7 @@ const STORES = {
         tag1: "Cards / E-money / QR Code Payment Accepted",
         tag2: "No Smoking",
         tag3: "Closed Sun & 3rd Mon",
-        tag4: "12 Seats",
+        tag4: "11 Seats",
         tag5: "Private Room Available (Semi-Private)",
         menu: [
           { name: "Chokotto Sushi Kaiseki", price: "\u00a59,000" },
@@ -1207,8 +1207,8 @@ const STORES = {
       "zh-Hant": {
         heroTag: "壽司",
         heroEyebrow: "壽司",
-        heroKana: "Chokotto Sushi Kiwami Bettei",
-        heroTitle: "Chokotto壽司 KIWAMI別邸",
+        heroKana: "Chokotto Sushi Bettei",
+        heroTitle: "Chokotto壽司 別邸",
         heroSub: "比平時再「稍微奢侈」一點的時光。品嚐使用最北端北海道與最南端沖繩食材製作的料理",
         budgetValue: "8,000～9,000円",
         areaValue: "薄野 南5條西3丁目",
@@ -1226,7 +1226,7 @@ const STORES = {
         tag1: "信用卡・電子錢包・QR Code支付皆可",
         tag2: "禁菸",
         tag3: "週日・第3週一休",
-        tag4: "共12席",
+        tag4: "共11席",
         tag5: "附包廂（半包廂）",
         menu: [
           { name: "Chokotto壽司會席", price: "¥9,000" },
@@ -1240,8 +1240,8 @@ const STORES = {
       ko: {
         heroTag: "스시",
         heroEyebrow: "스시",
-        heroKana: "초콧토 스시 키와미 벳테이",
-        heroTitle: "초콧토 스시 키와미 벳테이",
+        heroKana: "초콧토 스시 벳테이",
+        heroTitle: "초콧토 스시 벳테이",
         heroSub: "평소보다 조금 더 사치스러운 시간을. 최북단 홋카이도와 최남단 오키나와의 식재료를 사용한 요리를 즐겨보세요",
         budgetValue: "8,000엔~9,000엔",
         areaValue: "스스키노 미나미5조니시3초메",
@@ -1259,7 +1259,7 @@ const STORES = {
         tag1: "카드・전자화폐・QR코드 결제 가능",
         tag2: "금연",
         tag3: "일・셋째 월 휴무",
-        tag4: "전 12석",
+        tag4: "전 11석",
         tag5: "개인실 있음 (반개인실)",
         menu: [
           { name: "초콧토 스시 가이세키", price: "¥9,000" },
@@ -1273,8 +1273,8 @@ const STORES = {
       th: {
         heroTag: "\u0e0b\u0e39\u0e0a\u0e34",
         heroEyebrow: "\u0e0b\u0e39\u0e0a\u0e34",
-        heroKana: "Chokotto Sushi Kiwami Bettei",
-        heroTitle: "Chokotto Sushi Kiwami Bettei",
+        heroKana: "Chokotto Sushi Bettei",
+        heroTitle: "Chokotto Sushi Bettei",
         heroSub: "เวลาแห่งความหรูหรา 'อีกนิด' กว่าปกติ ลิ้มลองอาหารที่ใช้วัตถุดิบจากฮอกไกโดเหนือสุดและโอกินาว่าใต้สุดของญี่ปุ่น",
         budgetValue: "¥8,000-9,000",
         areaValue: "ซูซูกิโนะ มินามิ5 นิชิ3",
@@ -1292,7 +1292,7 @@ const STORES = {
         tag1: "บัตร / e-money / QR Code",
         tag2: "ห้ามสูบบุหรี่",
         tag3: "ปิดอาทิตย์・จันทร์ที่3",
-        tag4: "12 ที่นั่ง",
+        tag4: "11 ที่นั่ง",
         tag5: "มีห้องส่วนตัว (กึ่งส่วนตัว)",
         menu: [
           { name: "คอร์สไคเซกิซูชิโชคอตโตะ", price: "¥9,000" },
