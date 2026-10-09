@@ -5722,7 +5722,7 @@ const STORES = {
       heroKana: "ホッカイリョウリ コロポックル",
       heroTitle: "古艪帆来",
       heroSub: "創業50年！地元客に愛される老舗。北海道の旬の味覚を楽しめる人気店",
-      budgetValue: "5,000円～6,000円",
+      budgetValue: "6,000円～7,000円",
       areaValue: "すすきの 南4条西4丁目",
       seatValue: "250席",
       couponMain: "飲食代5％引き",
@@ -5745,9 +5745,9 @@ const STORES = {
           { name: "浜ゆで毛ガニ", desc: "産地直送！！毛カニ姿盛（450g相当）★カニ味噌たっぷりの北海道産の毛カニ", price: "8,800円～" },
           { name: "旬の刺身盛", desc: "その日に入荷する旬の新鮮素材がおすすめ！刺身のメニューは毎日替るので、鮮度抜群！", price: "1,680円～" },
           { name: "特上にぎり寿司（10カン）", price: "2,980円" },
-          { name: "特大ホッケ焼", price: "1,100円～" },
+          { name: "特大ホッケ焼", price: "1,340円～" },
           { name: "北あかりじゃがバター", price: "580円" },
-          { name: "飲み放題120分", price: "2,200円" }
+          { name: "飲み放題120分", price: "2,500円" }
         ]
       },
       en: {
@@ -5756,7 +5756,7 @@ const STORES = {
       heroKana: "Hokkai Ryori Koropokkuru",
       heroTitle: "Koropokkuru",
       heroSub: "Established 50 years ago! A long-established favorite loved by locals, where you can enjoy Hokkaido's seasonal flavors.",
-      budgetValue: "¥5,000–6,000",
+      budgetValue: "¥6,000–7,000",
       areaValue: "Susukino, Minami 4 Nishi 4",
       seatValue: "250 seats",
       couponMain: "5% Off Your Bill",
@@ -5779,9 +5779,9 @@ const STORES = {
           { name: "Fresh-boiled Hairy Crab", desc: "Direct from the source! Whole hairy crab (approx. 450 g) ★ Hokkaido crab packed with crab miso", price: "From ¥8,800" },
           { name: "Seasonal Sashimi Platter", desc: "We recommend the fresh seasonal ingredients that arrive each day! The sashimi menu changes daily, so it's ultra fresh!", price: "From ¥1,680" },
           { name: "Premium Nigiri Sushi (10 pcs)", price: "¥2,980" },
-          { name: "Extra-large Grilled Atka Mackerel (Hokke)", price: "From ¥1,100" },
+          { name: "Extra-large Grilled Atka Mackerel (Hokke)", price: "From ¥1,340" },
           { name: "Kita Akari Potato with Butter", price: "¥580" },
-          { name: "All-You-Can-Drink (120 min)", price: "¥2,200" }
+          { name: "All-You-Can-Drink (120 min)", price: "¥2,500" }
         ]
       },
       "zh-Hant": {
@@ -5790,7 +5790,7 @@ const STORES = {
       heroKana: "Hokkai Ryori Koropokkuru",
       heroTitle: "古艪帆來",
       heroSub: "創業50年！深受當地客人喜愛的老店。可品嚐北海道當季美味的人氣名店。",
-      budgetValue: "5,000～6,000円",
+      budgetValue: "6,000～7,000円",
       areaValue: "薄野 南4條西4丁目",
       seatValue: "250席",
       couponMain: "餐飲費95折優惠",
@@ -5813,9 +5813,9 @@ const STORES = {
           { name: "現煮毛蟹", desc: "產地直送！！整隻毛蟹（約450g）★蟹膏豐富的北海道產毛蟹", price: "¥8,800起" },
           { name: "當季生魚片拼盤", desc: "推薦當天進貨的當季新鮮食材！生魚片菜單每天更換，鮮度絕佳！", price: "¥1,680起" },
           { name: "特上握壽司（10貫）", price: "¥2,980" },
-          { name: "特大花魚燒烤", price: "¥1,100起" },
+          { name: "特大花魚燒烤", price: "¥1,340起" },
           { name: "北明星馬鈴薯奶油", price: "¥580" },
-          { name: "暢飲120分鐘", price: "¥2,200" }
+          { name: "暢飲120分鐘", price: "¥2,500" }
         ]
       },
       ko: {
@@ -5824,7 +5824,7 @@ const STORES = {
       heroKana: "홋카이 료리 코로폿쿠루",
       heroTitle: "코로폿쿠루",
       heroSub: "창업 50년! 현지 손님에게 사랑받는 노포. 홋카이도의 제철 미식을 즐길 수 있는 인기 맛집.",
-      budgetValue: "5,000엔~6,000엔",
+      budgetValue: "6,000엔~7,000엔",
       areaValue: "스스키노 미나미4조니시4초메",
       seatValue: "250석",
       couponMain: "식사비 5% 할인",
@@ -5847,9 +5847,9 @@ const STORES = {
           { name: "하마유데 털게", desc: "산지직송!! 털게 한 마리 (약 450g) ★게장이 가득한 홋카이도산 털게", price: "¥8,800~" },
           { name: "제철 사시미 모둠", desc: "당일 입고되는 제철 신선 재료를 추천합니다! 사시미 메뉴는 매일 바뀌어 신선도 최고!", price: "¥1,680~" },
           { name: "특상 니기리 스시 (10관)", price: "¥2,980" },
-          { name: "특대 임연수어 구이", price: "¥1,100~" },
+          { name: "특대 임연수어 구이", price: "¥1,340~" },
           { name: "키타아카리 감자버터", price: "¥580" },
-          { name: "무제한 음료 120분", price: "¥2,200" }
+          { name: "무제한 음료 120분", price: "¥2,500" }
         ]
       },
       th: {
@@ -5858,7 +5858,7 @@ const STORES = {
       heroKana: "Hokkai Ryori Koropokkuru",
       heroTitle: "Koropokkuru",
       heroSub: "ก่อตั้งมา 50 ปี! ร้านเก่าแก่ที่คนท้องถิ่นรัก ลิ้มรสของดีตามฤดูกาลจากฮอกไกโด ร้านดังยอดนิยม",
-      budgetValue: "¥5,000-6,000",
+      budgetValue: "¥6,000-7,000",
       areaValue: "ซูซูกิโนะ มินามิ4 นิชิ4",
       seatValue: "250 ที่นั่ง",
       couponMain: "ส่วนลดค่าอาหาร 5%",
@@ -5881,9 +5881,9 @@ const STORES = {
           { name: "ปูขนต้มสดจากทะเล", desc: "ส่งตรงจากแหล่งผลิต!! ปูขนทั้งตัว (ประมาณ 450 กรัม) ★ปูขนจากฮอกไกโดที่มีมันปูเต็มๆ", price: "เริ่มต้น ¥8,800" },
           { name: "ซาชิมิรวมตามฤดูกาล", desc: "แนะนำวัตถุดิบสดตามฤดูกาลที่เข้ามาในแต่ละวัน! เมนูซาชิมิเปลี่ยนทุกวัน จึงสดมาก!", price: "เริ่มต้น ¥1,680" },
           { name: "ซูชินิกิริพิเศษ (10 ชิ้น)", price: "¥2,980" },
-          { name: "ปลาฮ็อกเกะย่างตัวใหญ่พิเศษ", price: "เริ่มต้น ¥1,100" },
+          { name: "ปลาฮ็อกเกะย่างตัวใหญ่พิเศษ", price: "เริ่มต้น ¥1,340" },
           { name: "มันฝรั่งคิตะอาคาริกับเนย", price: "¥580" },
-          { name: "ดื่มไม่อั้น 120 นาที", price: "¥2,200" }
+          { name: "ดื่มไม่อั้น 120 นาที", price: "¥2,500" }
         ]
       }
     }
