@@ -3875,7 +3875,7 @@ const STORES = {
     heroImage: "images/ichi_hero.jpg",
     tel: "011-600-6040",
     address: "北海道札幌市中央区南7条西6-2-12",
-    mapDestination: "壱 北海道札幌市中央区南7条西6-2-12",
+    mapDestination: "ジンギスカン 壱 北海道札幌市中央区南7条西6-2-12",
     accessNote: false,
     is24h: false,
 
