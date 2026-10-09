@@ -8656,7 +8656,7 @@ const STORES = {
       tag5: "個室なし",
       menu: [
           { name: "トマトらーめん", price: "1,100円" },
-          { name: "神奈川らーめん", price: "1,100円" },
+          { name: "神奈川つけ麺", price: "1,100円" },
           { name: "赤味噌らーめん", price: "1,100円" },
           { name: "白味噌らーめん", price: "1,100円" },
           { name: "豚塩らーめん", price: "1,100円" },
@@ -8691,7 +8691,7 @@ const STORES = {
       tag5: "No Private Room",
       menu: [
           { name: "Tomato Ramen", price: "¥1,100" },
-          { name: "Kanagawa-style Ramen", price: "¥1,100" },
+          { name: "Kanagawa-style Tsukemen", price: "¥1,100" },
           { name: "Red Miso Ramen", price: "¥1,100" },
           { name: "White Miso Ramen", price: "¥1,100" },
           { name: "Pork-Salt Ramen", price: "¥1,100" },
@@ -8726,7 +8726,7 @@ const STORES = {
       tag5: "無包廂",
       menu: [
           { name: "番茄拉麵", price: "¥1,100" },
-          { name: "神奈川拉麵", price: "¥1,100" },
+          { name: "神奈川沾麵", price: "¥1,100" },
           { name: "赤味噌拉麵", price: "¥1,100" },
           { name: "白味噌拉麵", price: "¥1,100" },
           { name: "豚鹽拉麵", price: "¥1,100" },
@@ -8761,7 +8761,7 @@ const STORES = {
       tag5: "개인실 없음",
       menu: [
           { name: "토마토 라멘", price: "¥1,100" },
-          { name: "가나가와 라멘", price: "¥1,100" },
+          { name: "가나가와 츠케멘", price: "¥1,100" },
           { name: "아카미소 라멘", price: "¥1,100" },
           { name: "시로미소 라멘", price: "¥1,100" },
           { name: "돈시오 라멘", price: "¥1,100" },
@@ -8796,7 +8796,7 @@ const STORES = {
       tag5: "ไม่มีห้องส่วนตัว",
       menu: [
           { name: "ราเมงมะเขือเทศ", price: "¥1,100" },
-          { name: "ราเมงสไตล์คานากาวะ", price: "¥1,100" },
+          { name: "สึเกะเมนสไตล์คานากาวะ", price: "¥1,100" },
           { name: "ราเมงมิโซะแดง", price: "¥1,100" },
           { name: "ราเมงมิโซะขาว", price: "¥1,100" },
           { name: "ราเมงทงชิโอะ", price: "¥1,100" },
