@@ -9173,6 +9173,7 @@ const STORES = {
   "jin": {
     heroImage: "images/jin_hero.jpg",
     menuImage: "images/jin_menu.jpg",
+    interiorImage: "images/jin_interior.jpg",
     tel: "011-206-7977",
     address: "北海道札幌市中央区南3条西6丁目 インフィニ桂和22 8F",
     mapDestination: "仁（jin） 北海道札幌市中央区南3条西6丁目 インフィニ桂和22 8F",
