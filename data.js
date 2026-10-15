@@ -9209,8 +9209,8 @@ const STORES = {
           { name: "比内地鶏もも肉串焼き", price: "690円" },
           { name: "おまかせ握り（3貫・5貫・7貫）", price: "1,500円～" },
           { name: "比内地鶏の胸肉たたき", price: "1,580円" },
-          { name: "刺身1人前盛り合わせ", price: "1,760円～" },
-          { name: "おまかせコース", price: "6,600円～" }
+          { name: "刺身1人前盛り合わせ", price: "1,760円" },
+          { name: "おまかせコース", price: "8,800円～" }
         ]
       },
       en: {
@@ -9242,8 +9242,8 @@ const STORES = {
           { name: "Grilled Hinai-jidori Chicken Thigh Skewer", price: "¥690" },
           { name: "Chef's Choice Nigiri (3, 5, or 7 pieces)", price: "From ¥1,500" },
           { name: "Hinai-jidori Chicken Breast Tataki", price: "¥1,580" },
-          { name: "Sashimi Assortment (1 serving)", price: "From ¥1,760" },
-          { name: "Omakase Course", price: "From ¥6,600" }
+          { name: "Sashimi Assortment (1 serving)", price: "¥1,760" },
+          { name: "Omakase Course", price: "From ¥8,800" }
         ]
       },
       "zh-Hant": {
@@ -9275,8 +9275,8 @@ const STORES = {
           { name: "比內地雞腿肉串燒", price: "¥690" },
           { name: "主廚精選握壽司（3貫・5貫・7貫）", price: "¥1,500起" },
           { name: "比內地雞胸肉半敲燒", price: "¥1,580" },
-          { name: "生魚片拼盤（1人份）", price: "¥1,760起" },
-          { name: "主廚精選套餐", price: "¥6,600起" }
+          { name: "生魚片拼盤（1人份）", price: "¥1,760" },
+          { name: "主廚精選套餐", price: "¥8,800起" }
         ]
       },
       ko: {
@@ -9308,8 +9308,8 @@ const STORES = {
           { name: "히나이지도리 넓적다리살 꼬치구이", price: "¥690" },
           { name: "오마카세 니기리 (3관・5관・7관)", price: "¥1,500~" },
           { name: "히나이지도리 가슴살 타타키", price: "¥1,580" },
-          { name: "사시미 모둠 (1인분)", price: "¥1,760~" },
-          { name: "오마카세 코스", price: "¥6,600~" }
+          { name: "사시미 모둠 (1인분)", price: "¥1,760" },
+          { name: "오마카세 코스", price: "¥8,800~" }
         ]
       },
       th: {
@@ -9341,8 +9341,8 @@ const STORES = {
           { name: "ไก่ฮินาอิจิโดริส่วนน่องเสียบไม้ย่าง", price: "¥690" },
           { name: "นิกิริโอมากาเสะ (3・5・7 ชิ้น)", price: "เริ่มต้น ¥1,500" },
           { name: "ทาทากิอกไก่ฮินาอิจิโดริ", price: "¥1,580" },
-          { name: "ซาชิมิรวม (1 ที่)", price: "เริ่มต้น ¥1,760" },
-          { name: "คอร์สโอมากาเสะ", price: "เริ่มต้น ¥6,600" }
+          { name: "ซาชิมิรวม (1 ที่)", price: "¥1,760" },
+          { name: "คอร์สโอมากาเสะ", price: "เริ่มต้น ¥8,800" }
         ]
       }
     }
