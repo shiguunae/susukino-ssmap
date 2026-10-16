@@ -2963,7 +2963,7 @@ const STORES = {
     i18n: {
       ja: {
       heroTag: "焼鳥",
-      heroEyebrow: "焼鳥",
+      heroEyebrow: "",
       heroKana: "ススキノトリヤ ホンテン",
       heroTitle: "すすきの鳥屋 本店",
       heroSub: "リーズナブルに飲みたいならココ！北海道を満喫できるメニューも多数揃えた焼鳥居酒屋",
@@ -2998,7 +2998,7 @@ const STORES = {
       },
       en: {
       heroTag: "Yakitori",
-      heroEyebrow: "Yakitori",
+      heroEyebrow: "",
       heroKana: "Susukino Toriya Honten",
       heroTitle: "Susukino Toriya Honten",
       heroSub: "The place for affordable drinks! A yakitori izakaya with many menu items to fully enjoy Hokkaido",
@@ -3033,7 +3033,7 @@ const STORES = {
       },
       "zh-Hant": {
       heroTag: "烤雞串",
-      heroEyebrow: "烤雞串",
+      heroEyebrow: "",
       heroKana: "Susukino Toriya Honten",
       heroTitle: "薄野鳥屋 本店",
       heroSub: "想輕鬆小酌就來這裡！備有多款能盡享北海道風味的烤雞串居酒屋",
@@ -3068,7 +3068,7 @@ const STORES = {
       },
       ko: {
       heroTag: "야키토리",
-      heroEyebrow: "야키토리",
+      heroEyebrow: "",
       heroKana: "스스키노토리야 혼텐",
       heroTitle: "스스키노토리야 본점",
       heroSub: "저렴하게 마시고 싶다면 여기! 홋카이도를 만끽할 수 있는 메뉴도 다수 갖춘 야키토리 이자카야",
@@ -3103,7 +3103,7 @@ const STORES = {
       },
       th: {
       heroTag: "ยากิโทริ",
-      heroEyebrow: "ยากิโทริ",
+      heroEyebrow: "",
       heroKana: "Susukino Toriya Honten",
       heroTitle: "Susukino Toriya Honten",
       heroSub: "อยากดื่มแบบคุ้มราคา ที่นี่เลย! อิซากายะยากิโทริที่มีเมนูให้อิ่มอร่อยกับฮอกไกโดมากมาย",
@@ -3151,7 +3151,7 @@ const STORES = {
     i18n: {
       ja: {
       heroTag: "焼鳥",
-      heroEyebrow: "焼鳥",
+      heroEyebrow: "",
       heroKana: "ススキノトリヤ エキマドオリテン",
       heroTitle: "すすきの鳥屋 駅前通り店",
       heroSub: "焼き鳥はもちろん、自慢の牛すじの煮込みはクセになる！",
@@ -3186,7 +3186,7 @@ const STORES = {
       },
       en: {
       heroTag: "Yakitori",
-      heroEyebrow: "Yakitori",
+      heroEyebrow: "",
       heroKana: "Susukino Toriya Ekimae-dori",
       heroTitle: "Susukino Toriya Ekimae-dori",
       heroSub: "Great yakitori, and our signature simmered beef tendon is addictive!",
@@ -3221,7 +3221,7 @@ const STORES = {
       },
       "zh-Hant": {
       heroTag: "烤雞串",
-      heroEyebrow: "烤雞串",
+      heroEyebrow: "",
       heroKana: "Susukino Toriya Ekimae-dori",
       heroTitle: "薄野鳥屋 站前通店",
       heroSub: "烤雞串自不用說，招牌燉牛筋更是讓人一吃上癮！",
@@ -3256,7 +3256,7 @@ const STORES = {
       },
       ko: {
       heroTag: "야키토리",
-      heroEyebrow: "야키토리",
+      heroEyebrow: "",
       heroKana: "스스키노토리야 에키마에도리텐",
       heroTitle: "스스키노토리야 에키마에도리점",
       heroSub: "야키토리는 물론, 자랑하는 소힘줄조림은 한번 맛보면 중독!",
@@ -3291,7 +3291,7 @@ const STORES = {
       },
       th: {
       heroTag: "ยากิโทริ",
-      heroEyebrow: "ยากิโทริ",
+      heroEyebrow: "",
       heroKana: "Susukino Toriya Ekimae-dori",
       heroTitle: "Susukino Toriya Ekimae-dori",
       heroSub: "ยากิโทริเด็ดแน่นอน แต่เอ็นวัวตุ๋นสูตรเด็ดของร้านนี่แหละที่ทำให้ติดใจ!",
@@ -6429,8 +6429,11 @@ const STORES = {
       tag5: "個室なし",
       menu: [
           { name: "コク旨味噌らーめん", price: "1,200円" },
-          { name: "バターコーンらーめん", price: "1,380円～" },
-          { name: "辛味噌らーめん", price: "1,080円" }
+          { name: "元祖味噌ラーメン", price: "1,080円" },
+          { name: "辛味噌らーめん", price: "1,080円" },
+          { name: "魚介味噌ラーメン", price: "1,080円" },
+          { name: "札幌ブラック醤油ラーメン", price: "1,080円" },
+          { name: "塩ラーメン", price: "1,080円" }
         ]
       },
       en: {
@@ -6460,8 +6463,11 @@ const STORES = {
       tag5: "No Private Room",
       menu: [
           { name: "Rich Savory Miso Ramen", price: "¥1,200" },
-          { name: "Butter Corn Ramen", price: "From ¥1,380" },
-          { name: "Spicy Miso Ramen", price: "¥1,080" }
+          { name: "Original Miso Ramen", price: "¥1,080" },
+          { name: "Spicy Miso Ramen", price: "¥1,080" },
+          { name: "Seafood Miso Ramen", price: "¥1,080" },
+          { name: "Sapporo Black Soy Sauce Ramen", price: "¥1,080" },
+          { name: "Salt Ramen", price: "¥1,080" }
         ]
       },
       "zh-Hant": {
@@ -6491,8 +6497,11 @@ const STORES = {
       tag5: "無包廂",
       menu: [
           { name: "濃郁美味味噌拉麵", price: "¥1,200" },
-          { name: "奶油玉米拉麵", price: "¥1,380起" },
-          { name: "辣味噌拉麵", price: "¥1,080" }
+          { name: "元祖味噌拉麵", price: "¥1,080" },
+          { name: "辣味噌拉麵", price: "¥1,080" },
+          { name: "海鮮味噌拉麵", price: "¥1,080" },
+          { name: "札幌黑醬油拉麵", price: "¥1,080" },
+          { name: "鹽味拉麵", price: "¥1,080" }
         ]
       },
       ko: {
@@ -6522,8 +6531,11 @@ const STORES = {
       tag5: "개인실 없음",
       menu: [
           { name: "진한 감칠맛 미소 라멘", price: "¥1,200" },
-          { name: "버터 콘 라멘", price: "¥1,380~" },
-          { name: "매운 미소 라멘", price: "¥1,080" }
+          { name: "오리지널 미소 라멘", price: "¥1,080" },
+          { name: "매운 미소 라멘", price: "¥1,080" },
+          { name: "해산물 미소 라멘", price: "¥1,080" },
+          { name: "삿포로 블랙 간장 라멘", price: "¥1,080" },
+          { name: "소금 라멘", price: "¥1,080" }
         ]
       },
       th: {
@@ -6553,8 +6565,11 @@ const STORES = {
       tag5: "ไม่มีห้องส่วนตัว",
       menu: [
           { name: "มิโซะราเมงรสเข้มข้น", price: "¥1,200" },
-          { name: "ราเมงเนยข้าวโพด", price: "เริ่มต้น ¥1,380" },
-          { name: "ราเมงมิโซะเผ็ด", price: "¥1,080" }
+          { name: "มิโซะราเมงต้นตำรับ", price: "¥1,080" },
+          { name: "ราเมงมิโซะเผ็ด", price: "¥1,080" },
+          { name: "ราเมงมิโซะซีฟู้ด", price: "¥1,080" },
+          { name: "ราเมงซีอิ๊วดำสไตล์ซัปโปโร", price: "¥1,080" },
+          { name: "ราเมงน้ำซุปเกลือ", price: "¥1,080" }
         ]
       }
     }
@@ -6924,7 +6939,7 @@ const STORES = {
     i18n: {
       ja: {
       heroTag: "居酒屋",
-      heroEyebrow: "居酒屋",
+      heroEyebrow: "",
       heroKana: "グランドイザカヤフジ",
       heroTitle: "グランド居酒屋富士",
       heroSub: "地元に愛されて60周年！安く、美味く、ボリューム満点「北海道の味を売る店」",
@@ -6959,7 +6974,7 @@ const STORES = {
       },
       en: {
       heroTag: "Izakaya",
-      heroEyebrow: "Izakaya",
+      heroEyebrow: "",
       heroKana: "Grand Izakaya Fuji",
       heroTitle: "Grand Izakaya Fuji",
       heroSub: "Loved by locals for 60 years! Cheap, delicious, and generous portions — \"the shop that sells the taste of Hokkaido.\"",
@@ -6994,7 +7009,7 @@ const STORES = {
       },
       "zh-Hant": {
       heroTag: "居酒屋",
-      heroEyebrow: "居酒屋",
+      heroEyebrow: "",
       heroKana: "Grand Izakaya Fuji",
       heroTitle: "Grand居酒屋富士",
       heroSub: "深受在地人喜愛60週年！便宜、美味、份量十足的「販售北海道風味的店」。",
@@ -7029,7 +7044,7 @@ const STORES = {
       },
       ko: {
       heroTag: "이자카야",
-      heroEyebrow: "이자카야",
+      heroEyebrow: "",
       heroKana: "그랜드 이자카야 후지",
       heroTitle: "그랜드 이자카야 후지",
       heroSub: "현지에서 사랑받아 60주년! 저렴하고 맛있고 푸짐한 「홋카이도의 맛을 파는 가게」.",
@@ -7064,7 +7079,7 @@ const STORES = {
       },
       th: {
       heroTag: "อิซากายะ",
-      heroEyebrow: "อิซากายะ",
+      heroEyebrow: "",
       heroKana: "Grand Izakaya Fuji",
       heroTitle: "Grand Izakaya Fuji",
       heroSub: "เป็นที่รักของคนท้องถิ่นมา 60 ปี! ราคาถูก อร่อย ปริมาณจุใจ \"ร้านที่ขายรสชาติแห่งฮอกไกโด\"",
@@ -7258,7 +7273,7 @@ const STORES = {
     i18n: {
       ja: {
       heroTag: "居酒屋",
-      heroEyebrow: "居酒屋",
+      heroEyebrow: "",
       heroKana: "ギョウザノヤマオカヤ ススキノテン",
       heroTitle: "餃子の山岡家 すすきの店",
       heroSub: "山岡家の新ブランド！ 年中無休、24時間営業！",
@@ -7293,7 +7308,7 @@ const STORES = {
       },
       en: {
       heroTag: "Izakaya",
-      heroEyebrow: "Izakaya",
+      heroEyebrow: "",
       heroKana: "Gyoza no Yamaokaya Susukino",
       heroTitle: "Gyoza no Yamaokaya Susukino",
       heroSub: "A new brand from Yamaokaya! Open 24 hours, every day of the year!",
@@ -7328,7 +7343,7 @@ const STORES = {
       },
       "zh-Hant": {
       heroTag: "居酒屋",
-      heroEyebrow: "居酒屋",
+      heroEyebrow: "",
       heroKana: "Gyoza no Yamaokaya Susukino",
       heroTitle: "餃子の山岡家 薄野店",
       heroSub: "山岡家的全新品牌！全年無休、24小時營業！",
@@ -7363,7 +7378,7 @@ const STORES = {
       },
       ko: {
       heroTag: "이자카야",
-      heroEyebrow: "이자카야",
+      heroEyebrow: "",
       heroKana: "교자노 야마오카야 스스키노점",
       heroTitle: "교자노 야마오카야 스스키노점",
       heroSub: "야마오카야의 신규 브랜드! 연중무휴, 24시간 영업!",
@@ -7398,7 +7413,7 @@ const STORES = {
       },
       th: {
       heroTag: "อิซากายะ",
-      heroEyebrow: "อิซากายะ",
+      heroEyebrow: "",
       heroKana: "Gyoza no Yamaokaya Susukino",
       heroTitle: "Gyoza no Yamaokaya ซูซูกิโนะ",
       heroSub: "แบรนด์ใหม่จากยามาโอกะยะ! เปิดตลอด 24 ชั่วโมง ไม่มีวันหยุด!",
@@ -7447,7 +7462,7 @@ const STORES = {
     i18n: {
       ja: {
       heroTag: "ジンギスカン",
-      heroEyebrow: "ジンギスカン",
+      heroEyebrow: "",
       heroKana: "ヨウシ",
       heroTitle: "羊師",
       heroSub: "肉厚なのにこの柔らかさ、感動！！ 新鮮な究極の生ラムを特製鍋で！",
@@ -7480,7 +7495,7 @@ const STORES = {
       },
       en: {
       heroTag: "Jingisukan",
-      heroEyebrow: "Jingisukan",
+      heroEyebrow: "",
       heroKana: "Youshi",
       heroTitle: "Youshi",
       heroSub: "Thick-cut yet so tender — it's moving! Ultimate fresh lamb cooked on our special pan!",
@@ -7513,7 +7528,7 @@ const STORES = {
       },
       "zh-Hant": {
       heroTag: "成吉思汗烤肉",
-      heroEyebrow: "成吉思汗烤肉",
+      heroEyebrow: "",
       heroKana: "Youshi",
       heroTitle: "羊師",
       heroSub: "肉質厚實卻如此軟嫩，令人感動！！用特製鍋享用新鮮的極致生羊肉！",
@@ -7546,7 +7561,7 @@ const STORES = {
       },
       ko: {
       heroTag: "징기스칸",
-      heroEyebrow: "징기스칸",
+      heroEyebrow: "",
       heroKana: "요시",
       heroTitle: "요시",
       heroSub: "두툼한데도 이렇게 부드럽다니, 감동!! 신선한 최상급 생램을 특제 철판으로!",
@@ -7579,7 +7594,7 @@ const STORES = {
       },
       th: {
       heroTag: "จินกิสข่าน",
-      heroEyebrow: "จินกิสข่าน",
+      heroEyebrow: "",
       heroKana: "Youshi",
       heroTitle: "Youshi",
       heroSub: "เนื้อหนาแต่นุ่มขนาดนี้ ประทับใจมาก!! ลิ้มรสเนื้อแกะสดระดับสุดยอดบนกระทะพิเศษ!",
@@ -7626,7 +7641,7 @@ const STORES = {
     i18n: {
       ja: {
       heroTag: "焼肉",
-      heroEyebrow: "焼肉",
+      heroEyebrow: "",
       heroKana: "コシツヤキニクツバメ ススキノテン",
       heroTitle: "個室焼肉つばめ すすきの店",
       heroSub: "個室のくつろぎ空間で厳選した質の良いお肉をリーズナブルに楽しめる！",
@@ -7661,7 +7676,7 @@ const STORES = {
       },
       en: {
       heroTag: "Yakiniku",
-      heroEyebrow: "Yakiniku",
+      heroEyebrow: "",
       heroKana: "Koshitsu Yakiniku Tsubame Susukino",
       heroTitle: "Private Room Yakiniku Tsubame Susukino",
       heroSub: "Enjoy carefully selected, high-quality meat at reasonable prices in the relaxing space of a private room!",
@@ -7696,7 +7711,7 @@ const STORES = {
       },
       "zh-Hant": {
       heroTag: "燒肉",
-      heroEyebrow: "燒肉",
+      heroEyebrow: "",
       heroKana: "Koshitsu Yakiniku Tsubame Susukino",
       heroTitle: "個室燒肉燕 薄野店",
       heroSub: "在包廂的放鬆空間中，以實惠價格享用嚴選優質肉品！",
@@ -7731,7 +7746,7 @@ const STORES = {
       },
       ko: {
       heroTag: "야키니쿠",
-      heroEyebrow: "야키니쿠",
+      heroEyebrow: "",
       heroKana: "코시츠 야키니쿠 츠바메 스스키노점",
       heroTitle: "개인실 야키니쿠 츠바메 스스키노점",
       heroSub: "개인실의 편안한 공간에서 엄선한 양질의 고기를 합리적인 가격에 즐기세요!",
@@ -7766,7 +7781,7 @@ const STORES = {
       },
       th: {
       heroTag: "ยากินิกุ",
-      heroEyebrow: "ยากินิกุ",
+      heroEyebrow: "",
       heroKana: "Koshitsu Yakiniku Tsubame Susukino",
       heroTitle: "ยากินิกุห้องส่วนตัว Tsubame ซูซูกิโนะ",
       heroSub: "เพลิดเพลินกับเนื้อคุณภาพดีที่คัดสรรมาในราคาสมเหตุสมผล ในบรรยากาศผ่อนคลายของห้องส่วนตัว!",
@@ -9551,7 +9566,7 @@ const STORES = {
     i18n: {
       ja: {
       heroTag: "居酒屋",
-      heroEyebrow: "居酒屋",
+      heroEyebrow: "",
       heroKana: "ワダイドコロヤシキ",
       heroTitle: "和台所やしき",
       heroSub: "日本酒を引き立てるこだわりの肴と出合える隠れ家。ほっと落ち着く空間の中、一人の時間や仕事帰りの1杯を気取らず楽しめる",
@@ -9582,7 +9597,7 @@ const STORES = {
       },
       en: {
       heroTag: "Izakaya",
-      heroEyebrow: "Izakaya",
+      heroEyebrow: "",
       heroKana: "Wadaidokoro Yashiki",
       heroTitle: "Wadaidokoro Yashiki",
       heroSub: "A hideaway where you can discover carefully crafted dishes that bring out the best in sake. In a calm, relaxing space, enjoy time alone or a drink after work without any pretense.",
@@ -9613,7 +9628,7 @@ const STORES = {
       },
       "zh-Hant": {
       heroTag: "居酒屋",
-      heroEyebrow: "居酒屋",
+      heroEyebrow: "",
       heroKana: "Wadaidokoro Yashiki",
       heroTitle: "和台所やしき",
       heroSub: "能遇見襯托日本酒的講究下酒菜的隱密小店。在讓人安心放鬆的空間裡，無需拘謹地享受一個人的時光或下班後的一杯。",
@@ -9644,7 +9659,7 @@ const STORES = {
       },
       ko: {
       heroTag: "이자카야",
-      heroEyebrow: "이자카야",
+      heroEyebrow: "",
       heroKana: "와다이도코로 야시키",
       heroTitle: "와다이도코로 야시키",
       heroSub: "일본주를 돋보이게 하는 정성스러운 안주를 만날 수 있는 숨은 명소. 편안하고 차분한 공간에서 혼자만의 시간이나 퇴근길의 한 잔을 부담 없이 즐길 수 있습니다.",
@@ -9675,7 +9690,7 @@ const STORES = {
       },
       th: {
       heroTag: "อิซากายะ",
-      heroEyebrow: "อิซากายะ",
+      heroEyebrow: "",
       heroKana: "Wadaidokoro Yashiki",
       heroTitle: "Wadaidokoro Yashiki",
       heroSub: "ร้านลับที่ให้คุณพบกับกับแกล้มสุดพิถีพิถันที่เสริมรสชาติสาเก ในบรรยากาศสงบผ่อนคลาย เพลิดเพลินกับเวลาส่วนตัวหรือแก้วหลังเลิกงานอย่างสบายๆ ไม่ต้องเกร็ง",
@@ -9893,7 +9908,7 @@ const STORES = {
     i18n: {
       ja: {
       heroTag: "牡蠣小屋",
-      heroEyebrow: "牡蠣小屋",
+      heroEyebrow: "",
       heroKana: "ゴツボ シノブテイ",
       heroTitle: "5坪 忍亭",
       heroSub: "全国からの銘酒が揃っており厚岸産の牡蠣とのマリアージュが愉しめる",
@@ -9928,7 +9943,7 @@ const STORES = {
       },
       en: {
       heroTag: "Oyster Hut",
-      heroEyebrow: "Oyster Hut",
+      heroEyebrow: "",
       heroKana: "Gotsubo Shinobutei",
       heroTitle: "Gotsubo Shinobutei (5-tsubo)",
       heroSub: "A lineup of fine sake from across Japan, perfectly paired with oysters from Akkeshi.",
@@ -9963,7 +9978,7 @@ const STORES = {
       },
       "zh-Hant": {
       heroTag: "牡蠣小屋",
-      heroEyebrow: "牡蠣小屋",
+      heroEyebrow: "",
       heroKana: "Gotsubo Shinobutei",
       heroTitle: "5坪 忍亭",
       heroSub: "匯集全國銘酒，可享用與厚岸產牡蠣的絕妙搭配。",
@@ -9998,7 +10013,7 @@ const STORES = {
       },
       ko: {
       heroTag: "굴 오두막",
-      heroEyebrow: "굴 오두막",
+      heroEyebrow: "",
       heroKana: "고츠보 시노부테이",
       heroTitle: "5평 시노부테이",
       heroSub: "전국의 명주가 갖춰져 있어 앗케시산 굴과의 마리아주를 즐길 수 있습니다.",
@@ -10033,7 +10048,7 @@ const STORES = {
       },
       th: {
       heroTag: "กระท่อมหอยนางรม",
-      heroEyebrow: "กระท่อมหอยนางรม",
+      heroEyebrow: "",
       heroKana: "Gotsubo Shinobutei",
       heroTitle: "โกะสึโบะ ชิโนบุเทอิ (5 สึโบะ)",
       heroSub: "มีสาเกชั้นเลิศจากทั่วประเทศ ให้คุณเพลิดเพลินกับการจับคู่กับหอยนางรมจากอัตเกชิ",
