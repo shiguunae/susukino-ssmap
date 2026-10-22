@@ -9592,7 +9592,11 @@ const STORES = {
       menu: [
           { name: "ガツ葱", price: "800円" },
           { name: "旨味ぎっしり絶品土鍋ご飯", price: "1,300円" },
-          { name: "ザンギ", price: "590円" }
+          { name: "ザンギ", price: "590円" },
+          { name: "出汁巻き卵", price: "700円" },
+          { name: "本日のお刺身", price: "900円～" },
+          { name: "梅水晶", price: "500円" },
+          { name: "豚の角煮", price: "950円" }
         ]
       },
       en: {
@@ -9623,7 +9627,11 @@ const STORES = {
       menu: [
           { name: "Gatsu-negi (Pork Stomach with Green Onion)", price: "¥800" },
           { name: "Flavor-packed Exquisite Clay Pot Rice", price: "¥1,300" },
-          { name: "Zangi (Hokkaido Fried Chicken)", price: "¥590" }
+          { name: "Zangi (Hokkaido Fried Chicken)", price: "¥590" },
+          { name: "Dashimaki Tamago (Rolled Omelet)", price: "¥700" },
+          { name: "Today's Sashimi", price: "From ¥900" },
+          { name: "Umesuisho (Shark Cartilage with Plum Paste)", price: "¥500" },
+          { name: "Braised Pork Belly (Kakuni)", price: "¥950" }
         ]
       },
       "zh-Hant": {
@@ -9654,7 +9662,11 @@ const STORES = {
       menu: [
           { name: "豬胃拌蔥", price: "¥800" },
           { name: "鮮味滿滿絕品土鍋飯", price: "¥1,300" },
-          { name: "炸雞塊（Zangi）", price: "¥590" }
+          { name: "炸雞塊（Zangi）", price: "¥590" },
+          { name: "高湯玉子燒", price: "¥700" },
+          { name: "本日生魚片", price: "¥900起" },
+          { name: "梅水晶（梅醬鯊魚軟骨）", price: "¥500" },
+          { name: "滷五花肉（角煮）", price: "¥950" }
         ]
       },
       ko: {
@@ -9685,7 +9697,11 @@ const STORES = {
       menu: [
           { name: "가쓰네기(돼지 위 파무침)", price: "¥800" },
           { name: "감칠맛 가득 일품 뚝배기밥", price: "¥1,300" },
-          { name: "잔기(닭튀김)", price: "¥590" }
+          { name: "잔기(닭튀김)", price: "¥590" },
+          { name: "다시마키 계란말이", price: "¥700" },
+          { name: "오늘의 사시미", price: "¥900~" },
+          { name: "우메스이쇼(매실 상어연골 무침)", price: "¥500" },
+          { name: "돼지 가쿠니(돼지고기 조림)", price: "¥950" }
         ]
       },
       th: {
@@ -9716,7 +9732,11 @@ const STORES = {
       menu: [
           { name: "กัตสึเนกิ (กระเพาะหมูกับต้นหอม)", price: "¥800" },
           { name: "ข้าวหม้อดินสุดอร่อยเต็มเปี่ยมด้วยรสอูมามิ", price: "¥1,300" },
-          { name: "ซังกิ (ไก่ทอดสไตล์ฮอกไกโด)", price: "¥590" }
+          { name: "ซังกิ (ไก่ทอดสไตล์ฮอกไกโด)", price: "¥590" },
+          { name: "ไข่ม้วนสไตล์ดาชิ", price: "¥700" },
+          { name: "ซาชิมิประจำวัน", price: "เริ่มต้น ¥900" },
+          { name: "อุเมะซุยโช (กระดูกอ่อนฉลามกับซอสบ๊วย)", price: "¥500" },
+          { name: "หมูสามชั้นตุ๋นคาคุนิ", price: "¥950" }
         ]
       }
     }
