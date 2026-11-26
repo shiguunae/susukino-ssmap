@@ -1,0 +1,13 @@
+{
+  "name": "susukino-ssmap",
+  "private": true,
+  "scripts": {
+    "seed": "node scripts/make-seed.mjs",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.45.0"
+  },
+  "type": "module"
+}

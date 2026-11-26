@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SSMAP 承認・管理</title>
+<style>
+:root{--bg:#f6f4f0;--card:#fff;--ink:#241c17;--mute:#7a6f66;--line:#e3ddd4;--acc:#c9822a;--ok:#2e7d4f;--ng:#b3261e}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 -apple-system,"Hiragino Sans","Noto Sans JP",sans-serif}
+header{background:#211512;color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:8px}header a{color:#f0c27a}
+nav{display:flex;gap:6px;max-width:1000px;margin:12px auto 0;padding:0 16px;flex-wrap:wrap}nav button{border-radius:99px}nav button.on{background:#211512;color:#fff}
+main{max-width:1000px;margin:0 auto;padding:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}h2{font-size:16px;margin:0 0 10px}
+button{font:inherit;border-radius:8px;border:1px solid #cfc6ba;background:#fff;padding:8px 14px;cursor:pointer}button.ok{background:var(--ok);border-color:var(--ok);color:#fff;font-weight:700}button.ng{color:var(--ng);border-color:var(--ng)}button:disabled{opacity:.5}
+input[type=text],textarea,select{width:100%;padding:8px;border:1px solid #cfc6ba;border-radius:8px;font:inherit}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{border-bottom:1px solid var(--line);padding:7px 6px;text-align:left;vertical-align:top}
+.badge{font-size:12px;padding:2px 9px;border-radius:99px;white-space:nowrap}.b-none{background:#eee;color:#666}.b-draft{background:#fff1d6;color:#8a5a00}.b-pending{background:#dfeeff;color:#1a5fa8}.b-rejected{background:#fde2df;color:var(--ng)}
+.old{color:#9a8f85;text-decoration:line-through}.new{color:#0b6b36;font-weight:600}.sub{color:var(--mute);font-size:12px}
+.msg{padding:10px 12px;border-radius:8px;margin:10px 0}.err{background:#fde2df;color:var(--ng)}.good{background:#e0f2e7;color:var(--ok)}
+.tr textarea{min-height:44px;font-size:13px}.grid{display:grid;grid-template-columns:140px 1fr;gap:6px 10px;align-items:start}.grid>b{font-size:13px;padding-top:8px}
+.imgs{display:flex;gap:8px;flex-wrap:wrap}.imgs img{width:150px;aspect-ratio:4/3;object-fit:cover;border-radius:6px}
+</style></head><body>
+<header><b>SSMAP 承認・管理</b><span id="who"></span></header>
+<nav id="nav"></nav><main id="app">読み込み中…</main>
+<script>
+const $=s=>document.querySelector(s);const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ST={none:"公開中",draft:"下書き",pending:"承認待ち",rejected:"差し戻し"};
+const LAB={heroTag:"ジャンル",heroEyebrow:"肩書",heroKana:"ふりがな",heroTitle:"店名",heroSub:"紹介文",budgetValue:"予算",areaValue:"エリア",seatValue:"席数",couponMain:"クーポン",couponNote:"クーポン条件",couponExpiry:"有効期限",addressText:"住所",hoursText:"営業時間",closedText:"定休日",cardText:"カード",emoneyText:"電子マネー",qrText:"QR決済",smokeText:"喫煙",halalText:"ハラール",tag1:"タグ1",tag2:"タグ2",tag3:"タグ3",tag4:"タグ4",tag5:"タグ5",menu:"メニュー"};
+const LN={en:"英語","zh-Hant":"繁体字中国語",ko:"韓国語",th:"タイ語"};
+async function api(p,o={}){const r=await fetch(p,{...o,headers:o.body?{"content-type":"application/json"}:{}});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error||("エラー "+r.status));return j}
+let TAB="pending",ME;
+async function boot(){try{ME=await api("/api/me")}catch(e){$("#app").textContent=e.message;return}$("#who").innerHTML=esc(ME.email)+' ・ <a href="/staff/">入力画面</a>';tab(TAB)}
+function tab(t){TAB=t;$("#nav").innerHTML=[["pending","承認待ち"],["all","全店舗"],["staff","担当者"],["new","店舗を追加"]].map(([k,l])=>`<button class="${k===t?"on":""}" data-t="${k}">${l}</button>`).join("");document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>tab(b.dataset.t));({pending:()=>list(true),all:()=>list(false),staff,new:addStore})[t]()}
+async function list(onlyPending){const{stores}=await api("/api/admin/overview");const l=onlyPending?stores.filter(s=>s.status==="pending"):stores;
+$("#app").innerHTML=`<div class="card"><h2>${onlyPending?"承認待ち":"全店舗"}（${l.length}）</h2>${l.length?`<table><tr><th>店名</th><th>状態</th><th>${onlyPending?"提出者":"更新者"}</th><th>日時</th><th></th></tr>${l.map(s=>`<tr><td><b>${esc(s.title)}</b><div class="sub">${esc(s.id)}</div></td><td><span class="badge b-${s.status}">${ST[s.status]}</span></td><td>${esc((onlyPending?s.submitted_by:s.updated_by)||"")}</td><td class="sub">${esc(((onlyPending?s.submitted_at:s.updated_at)||"").replace("T"," ").slice(0,16))}</td><td>${["pending","draft","rejected"].includes(s.status)?`<button data-r="${esc(s.id)}">${s.status==="pending"?"確認する":"下書きを見る"}</button>`:`<a href="/${esc(s.id)}" target="_blank">ページ</a>`}</td></tr>`).join("")}</table>`:"<p>承認待ちはありません。</p>"}</div>`;
+document.querySelectorAll("[data-r]").forEach(b=>b.onclick=()=>review(b.dataset.r))}
+function fmt(k,o){if(k==="menu")return(o.menu||[]).map(m=>`${m.name} ${m.price}${m.desc?"（"+m.desc+"）":""}`).join(" / ")||"（なし）";return o[k]||"（空）"}
+async function review(id){let d;try{d=await api("/api/admin/review/"+id)}catch(e){alert(e.message);return}
+const pub=d.published?.i18n?.ja||{},nx=d.next.i18n.ja;const tr=d.draft.i18n;
+const ch=d.changed.map(k=>`<tr><td><b>${LAB[k]}</b></td><td class="old">${esc(fmt(k,pub))}</td><td class="new">${esc(fmt(k,nx))}</td></tr>`).concat(d.topChanged.map(k=>`<tr><td><b>${k==="tel"?"電話":k==="address"?"住所(地図)":"写真"}</b></td><td class="old">${esc(d.published?.[k]||"（なし）")}</td><td class="new">${esc(d.next[k]||"（なし）")}</td></tr>`)).join("");
+const imgs=["heroImage","menuImage","interiorImage"].filter(k=>d.next[k]).map(k=>`<img src="/${esc(d.next[k])}" alt="">`).join("");
+$("#app").innerHTML=`<p><button id="b">← 戻る</button></p><div class="card"><h2>${esc(nx.heroTitle)} <span class="sub">${esc(id)} ／ 提出: ${esc(d.submitted_by||"")} ${esc((d.submitted_at||"").replace("T"," ").slice(0,16))}</span></h2>
+${d.status!=="pending"?'<div class="msg err">まだ提出されていません（下書きの状態です）。</div>':""}
+<h2 style="margin-top:14px">変更内容</h2>${ch?`<table><tr><th style="width:110px">項目</th><th>現在</th><th>変更後</th></tr>${ch}</table>`:"<p>日本語の内容に変更はありません。</p>"}
+${imgs?`<h2 style="margin-top:14px">写真（変更後）</h2><div class="imgs">${imgs}</div>`:""}
+<p><button id="pv">変更後のページをプレビュー（新しいタブ）</button></p></div>
+<div class="card tr"><h2>自動翻訳（必要なら直せます）</h2>${tr?["en","zh-Hant","ko","th"].map(l=>`<details><summary><b>${LN[l]}</b></summary><div class="grid">${Object.keys(LAB).filter(k=>k!=="menu").map(k=>`<b>${LAB[k]}</b><textarea data-l="${l}" data-k="${k}">${esc(tr[l][k]||"")}</textarea>`).join("")}<b>メニュー</b><div>${(tr[l].menu||[]).map((m,i)=>`<div style="display:grid;grid-template-columns:2fr 1fr;gap:6px;margin-bottom:4px"><input type="text" data-l="${l}" data-m="${i}.name" value="${esc(m.name)}"><input type="text" data-l="${l}" data-m="${i}.price" value="${esc(m.price)}"></div>`).join("")}</div></div></details>`).join(""):'<div class="msg err">翻訳が未作成です。</div>'}
+<p><button id="rt">翻訳をやり直す</button></p></div>
+<div class="card"><div id="msg"></div><button class="ok" id="ap">承認して公開する</button> <button class="ng" id="rj">差し戻す</button> <span class="sub">公開すると、すぐにサイトへ反映されます。</span></div>`;
+$("#b").onclick=()=>tab(TAB);$("#pv").onclick=()=>open(`/?id=${id}&draft=1`,"_blank");
+$("#rt").onclick=async()=>{if(!confirm("翻訳をやり直します（手直しした内容は消えます）。"))return;$("#rt").disabled=true;try{await api("/api/admin/translate/"+id,{method:"POST"});review(id)}catch(e){alert(e.message);$("#rt").disabled=false}};
+$("#ap").onclick=async()=>{if(!tr){alert("翻訳が未作成です。");return}if(!confirm("この内容で公開します。よろしいですか？"))return;const o=JSON.parse(JSON.stringify(tr));
+document.querySelectorAll("textarea[data-l]").forEach(e=>o[e.dataset.l][e.dataset.k]=e.value);document.querySelectorAll("input[data-m]").forEach(e=>{const[i,f]=e.dataset.m.split(".");o[e.dataset.l].menu[i][f]=e.value});
+try{await api("/api/admin/approve/"+id,{method:"POST",body:JSON.stringify({i18n:o})});alert("公開しました。");tab("pending")}catch(e){$("#msg").innerHTML=`<div class="msg err">${esc(e.message)}</div>`}};
+$("#rj").onclick=async()=>{const n=prompt("差し戻しの理由（担当者に表示されます）");if(n===null)return;try{await api("/api/admin/reject/"+id,{method:"POST",body:JSON.stringify({note:n})});tab("pending")}catch(e){alert(e.message)}}}
+async function staff(){const{staff:s,admins}=await api("/api/admin/staff");const{stores}=await api("/api/admin/overview");
+$("#app").innerHTML=`<div class="card"><h2>担当者</h2><div class="sub">担当店舗は、店舗IDをカンマ区切りで入力します（すべての店舗なら * ）。管理者: ${esc(admins.join("、"))}</div>
+<table><tr><th>メール</th><th>名前</th><th>担当店舗ID</th><th></th></tr>${s.map(x=>`<tr><td>${esc(x.email)}</td><td>${esc(x.name)}</td><td>${esc(x.stores)}</td><td><button data-e="${esc(x.email)}" data-n="${esc(x.name)}" data-s="${esc(x.stores)}">編集</button> <button class="ng" data-d="${esc(x.email)}">削除</button></td></tr>`).join("")||"<tr><td colspan=4>まだ登録がありません</td></tr>"}</table></div>
+<div class="card"><h2>追加・編集</h2><div class="grid"><b>メール</b><input type="text" id="se"><b>名前</b><input type="text" id="sn"><b>担当店舗ID</b><div><input type="text" id="ss" placeholder="例: jin,kaoru"><div class="sub" style="margin-top:4px">店舗ID一覧: ${stores.map(x=>esc(x.id)).join(", ")}</div></div></div><p><button class="ok" id="sv">保存</button></p><div id="msg"></div></div>`;
+document.querySelectorAll("[data-e]").forEach(b=>b.onclick=()=>{$("#se").value=b.dataset.e;$("#sn").value=b.dataset.n;$("#ss").value=b.dataset.s;scrollTo(0,document.body.scrollHeight)});
+document.querySelectorAll("[data-d]").forEach(b=>b.onclick=async()=>{if(confirm(b.dataset.d+" を削除します。"))try{await api("/api/admin/staff?email="+encodeURIComponent(b.dataset.d),{method:"DELETE"});staff()}catch(e){alert(e.message)}});
+$("#sv").onclick=async()=>{try{await api("/api/admin/staff",{method:"PUT",body:JSON.stringify({email:$("#se").value,name:$("#sn").value,stores:$("#ss").value})});staff()}catch(e){$("#msg").innerHTML=`<div class="msg err">${esc(e.message)}</div>`}}}
+function addStore(){$("#app").innerHTML=`<div class="card"><h2>店舗を追加</h2><div class="sub">URLになるIDを入力します（半角の英小文字・数字・ハイフン・アンダーバー）。追加後、担当者が入力して提出します。</div><p><input type="text" id="id" placeholder="例: newshop"></p><button class="ok" id="ad">追加</button><div id="msg"></div></div>`;
+$("#ad").onclick=async()=>{try{await api("/api/admin/store",{method:"POST",body:JSON.stringify({id:$("#id").value})});$("#msg").innerHTML='<div class="msg good">追加しました。「担当者」で担当者に割り当ててください。</div>'}catch(e){$("#msg").innerHTML=`<div class="msg err">${esc(e.message)}</div>`}}}
+boot();
+</script></body></html>
