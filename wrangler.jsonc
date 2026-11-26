@@ -7,9 +7,8 @@
     "binding": "ASSETS",
     "run_worker_first": ["/data.js", "/api/*", "/images/*", "/staff", "/staff/*", "/admin", "/admin/*"]
   },
-  // D1（店舗データ）と R2（写真）は、初回のデプロイ時に自動で作成されます。
+  // D1（店舗データ・アップロード写真）は、初回のデプロイ時に自動で作成されます。
   "d1_databases": [{ "binding": "DB", "database_name": "ssmap-db" }],
-  "r2_buckets": [{ "binding": "IMAGES", "bucket_name": "ssmap-images" }],
   "vars": {
     // 承認者（管理者）のメールアドレス。複数ならカンマ区切り
     "ADMIN_EMAILS": "shingu.white@gmail.com",

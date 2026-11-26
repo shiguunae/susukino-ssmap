@@ -63,6 +63,7 @@ async function init(env) {
   await env.DB.batch([
     env.DB.prepare("CREATE TABLE IF NOT EXISTS stores (id TEXT PRIMARY KEY, sort INTEGER, published TEXT, draft TEXT, status TEXT DEFAULT 'none', note TEXT, updated_by TEXT, updated_at TEXT, submitted_by TEXT, submitted_at TEXT)"),
     env.DB.prepare("CREATE TABLE IF NOT EXISTS staff (email TEXT PRIMARY KEY, stores TEXT DEFAULT '', name TEXT DEFAULT '', pw TEXT DEFAULT '')"),
+    env.DB.prepare("CREATE TABLE IF NOT EXISTS images (key TEXT PRIMARY KEY, data TEXT, created_at TEXT)"),
     env.DB.prepare("CREATE TABLE IF NOT EXISTS attempts (email TEXT PRIMARY KEY, n INTEGER, at INTEGER)"),
     env.DB.prepare("CREATE TABLE IF NOT EXISTS history (id INTEGER PRIMARY KEY AUTOINCREMENT, store_id TEXT, action TEXT, actor TEXT, at TEXT, detail TEXT)"),
   ]);
@@ -100,8 +101,11 @@ export default {
     try {
       if (p === "/data.js") return await publicData(env);
       if (p.startsWith("/images/")) {
-        const o = env.IMAGES ? await env.IMAGES.get(p.slice(1)) : null;
-        if (o) return new Response(o.body, { headers: { "content-type": o.httpMetadata?.contentType || "image/jpeg", "cache-control": "public, max-age=31536000, immutable" } });
+        if (env.DB && /_\d{13}\.jpg$/.test(p)) {
+          await init(env);
+          const o = await env.DB.prepare("SELECT data FROM images WHERE key=?").bind(p.slice(1)).first();
+          if (o) return new Response(Uint8Array.from(atob(o.data), (c) => c.charCodeAt(0)), { headers: { "content-type": "image/jpeg", "cache-control": "public, max-age=31536000, immutable" } });
+        }
         return env.ASSETS.fetch(req);
       }
       if (!env.DB && (p === "/api/login" || p.startsWith("/staff") || p.startsWith("/admin") || p.startsWith("/api/"))) return json({ error: "データベースが未設定です。" }, 503);
@@ -203,9 +207,10 @@ async function api(req, env, url, user, isAdmin) {
     const id = url.searchParams.get("store") || "", kind = url.searchParams.get("kind") || "";
     if (!(await canEdit(env, user, id)) || !["hero", "menu", "interior"].includes(kind)) return json({ error: "アップロードできません。" }, 403);
     const buf = await req.arrayBuffer();
-    if (buf.byteLength > 5 * 1024 * 1024) return json({ error: "画像が大きすぎます（5MBまで）。" }, 413);
+    if (buf.byteLength > 1400 * 1024) return json({ error: "画像が大きすぎます。別の写真でお試しください。" }, 413);
     const key = `images/${id}_${kind}_${Date.now()}.jpg`;
-    await env.IMAGES.put(key, buf, { httpMetadata: { contentType: "image/jpeg" } });
+    let bin = ""; const u8 = new Uint8Array(buf); for (let i = 0; i < u8.length; i += 8192) bin += String.fromCharCode(...u8.subarray(i, i + 8192));
+    await env.DB.prepare("INSERT INTO images (key,data,created_at) VALUES (?,?,?)").bind(key, btoa(bin), now()).run();
     return json({ ok: true, path: key });
   }
 
