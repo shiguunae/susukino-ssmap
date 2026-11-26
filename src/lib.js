@@ -127,7 +127,12 @@ export async function translate(env, ja) {
   const text = (res.content || []).map((c) => c.text || "").join("");
   const m = text.match(/\{[\s\S]*\}/);
   if (!m) throw new Error("翻訳結果を読み取れませんでした");
-  const out = JSON.parse(m[0]);
+  return checkTranslation(JSON.parse(m[0]), payload);
+}
+
+export function checkTranslation(out, ja) {
+  if (!out || typeof out !== "object") throw new Error("翻訳の形式が正しくありません");
+  const payload = { menu: ja.menu || [] };
   for (const l of LANGS) {
     if (!out[l]) throw new Error("翻訳結果に " + l + " がありません");
     for (const k of JA_KEYS) if (typeof out[l][k] !== "string") out[l][k] = "";
@@ -141,4 +146,17 @@ export async function translate(env, ja) {
     for (const k of Object.keys(out[l])) if (k !== "menu" && !JA_KEYS.includes(k)) delete out[l][k];
   }
   return { en: out.en, "zh-Hant": out["zh-Hant"], ko: out.ko, th: out.th };
+}
+
+export function requestText(items) {
+  // items: { 店舗ID: 日本語データ }
+  const o = {};
+  for (const [id, ja] of Object.entries(items)) {
+    const p = {};
+    for (const k of JA_KEYS) p[k] = ja[k] || "";
+    p.menu = ja.menu || [];
+    o[id] = p;
+  }
+  return GUIDE.replace("出力はJSONのみ。形式は", "出力はJSONのみ（説明文は不要）。店舗IDをキーにした外側のオブジェクトで、各店舗の値の形式は") +
+    "\n\n次の店舗情報（店舗IDごと）を翻訳してください。\n" + JSON.stringify(o);
 }

@@ -1,5 +1,5 @@
 import seed from "./seed.json";
-import { toStore, validateForSubmit, diffJa, translate, JA_KEYS } from "./lib.js";
+import { toStore, validateForSubmit, diffJa, translate, checkTranslation, requestText, JA_KEYS } from "./lib.js";
 
 const json = (o, s = 200, h = {}) => new Response(JSON.stringify(o), { status: s, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store", ...h } });
 const js = (code, h = {}) => new Response(code, { headers: { "content-type": "application/javascript; charset=utf-8", ...h } });
@@ -178,8 +178,7 @@ async function api(req, env, url, user, isAdmin) {
     const draft = JSON.parse(r.draft);
     const miss = validateForSubmit(draft);
     if (miss.length) return json({ error: "未入力の項目があります: " + miss.join("、") }, 400);
-    const tr = await translate(env, toStore(draft, {}).i18n.ja);
-    draft.i18n = tr;
+    if (env.ANTHROPIC_API_KEY) draft.i18n = await translate(env, toStore(draft, {}).i18n.ja);
     await env.DB.prepare("UPDATE stores SET draft=?, status='pending', note='', submitted_by=?, submitted_at=?, updated_at=? WHERE id=?").bind(JSON.stringify(draft), user, now(), now(), id).run();
     await log(env, id, "承認に提出", user);
     return json({ ok: true, status: "pending" });
@@ -232,7 +231,11 @@ async function api(req, env, url, user, isAdmin) {
     const body = await req.json().catch(() => ({}));
     const d = JSON.parse(r.draft);
     if (body.i18n) d.i18n = body.i18n; // 翻訳の手直しを反映
-    if (!d.i18n) return json({ error: "翻訳が未作成です。" }, 400);
+    if (!d.i18n && r.published) {
+      const pub = JSON.parse(r.published);
+      if (JSON.stringify(toStore(d, {}).i18n.ja) === JSON.stringify(pub.i18n.ja)) d.i18n = Object.fromEntries(["en", "zh-Hant", "ko", "th"].map((l) => [l, pub.i18n[l]]));
+    }
+    if (!d.i18n) return json({ error: "翻訳が未作成です。先に翻訳を取り込んでください。" }, 400);
     const ns = toStore(d, d.i18n);
     await env.DB.prepare("UPDATE stores SET published=?, draft=NULL, status='none', note='', updated_by=?, updated_at=? WHERE id=?").bind(JSON.stringify(ns), user, now(), id).run();
     await log(env, id, "承認・公開", user);
@@ -251,6 +254,37 @@ async function api(req, env, url, user, isAdmin) {
     d.i18n = await translate(env, toStore(d, {}).i18n.ja);
     await env.DB.prepare("UPDATE stores SET draft=? WHERE id=?").bind(JSON.stringify(d), x[1]).run();
     return json({ ok: true });
+  }
+  if (p === "/api/admin/translation-request") {
+    const rs = await env.DB.prepare("SELECT id, draft, published FROM stores WHERE draft IS NOT NULL ORDER BY sort, id").all();
+    const items = {};
+    for (const r of rs.results) {
+      const d = JSON.parse(r.draft);
+      if (d.i18n) continue;
+      const ja = toStore(d, {}).i18n.ja;
+      if (r.published && JSON.stringify(ja) === JSON.stringify(JSON.parse(r.published).i18n.ja)) continue; // 日本語に変更なし
+      items[r.id] = ja;
+    }
+    const ids = Object.keys(items);
+    return json({ ids, text: ids.length ? requestText(items) : "" });
+  }
+  if (p === "/api/admin/import-translations" && m === "POST") {
+    const b = await req.json().catch(() => null);
+    if (!b || typeof b !== "object") return json({ error: "貼り付けた内容を読み取れませんでした。" }, 400);
+    const done = [], bad = [];
+    for (const [id, tr] of Object.entries(b)) {
+      const r = await env.DB.prepare("SELECT draft FROM stores WHERE id=?").bind(id).first();
+      if (!r || !r.draft) { bad.push(id + "（下書きがありません）"); continue; }
+      try {
+        const d = JSON.parse(r.draft);
+        const ja = toStore(d, {}).i18n.ja;
+        d.i18n = checkTranslation(tr, ja);
+        await env.DB.prepare("UPDATE stores SET draft=? WHERE id=?").bind(JSON.stringify(d), id).run();
+        await log(env, id, "翻訳を取り込み", user);
+        done.push(id);
+      } catch (e) { bad.push(id + "（" + e.message + "）"); }
+    }
+    return json({ ok: true, done, bad });
   }
   if (p === "/api/admin/staff" && m === "GET") {
     const rs = await env.DB.prepare("SELECT email, stores, name, (pw != '') AS hasPw FROM staff ORDER BY email").all();

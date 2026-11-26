@@ -51,7 +51,7 @@ const lock=CUR.status==="pending"&&!ME.isAdmin;
 $("#app").innerHTML=`<p><button id="back">← 店舗一覧へ</button></p>
 ${CUR.status==="rejected"?`<div class="msg err"><b>差し戻されました:</b> ${esc(CUR.note)}</div>`:""}
 ${CUR.status==="pending"?`<div class="msg info">承認待ちです。管理者が確認するまでお待ちください。${lock?"（編集はできません）":""}</div>`:""}
-<div class="card"><h2>${esc(j.heroTitle||CUR.id)} <span class="sub">（ID: ${esc(CUR.id)}）</span></h2><div class="sub">日本語だけ入力してください。英語・中国語・韓国語・タイ語は、提出すると自動で翻訳されます。</div></div>
+<div class="card"><h2>${esc(j.heroTitle||CUR.id)} <span class="sub">（ID: ${esc(CUR.id)}）</span></h2><div class="sub">日本語だけ入力してください。英語・中国語・韓国語・タイ語は、管理者が翻訳します。</div></div>
 <div class="card"><h2>基本情報</h2>
 <div class="row"><div>${inp("heroTag","ジャンル","例: 居酒屋・焼肉",{list:"genres"})}</div><div>${inp("heroEyebrow","肩書","なければ空欄（非表示）")}</div></div>
 ${inp("heroTitle","店名","")}${inp("heroKana","ふりがな（カタカナ）","")}
@@ -85,8 +85,8 @@ const mm=[];document.querySelectorAll("[data-m]").forEach(e=>{const[i,f]=e.datas
 return{...F,address:$("#address").value.trim(),tel:$("#tel").value.trim(),autoTags:$("#autoTags").checked,ja:j}}
 function note(t,c){$("#msg").innerHTML=t?`<div class="msg ${c}">${esc(t)}</div>`:""}
 async function save(quiet){try{const b=collect();await api("/api/store/"+CUR.id,{method:"PUT",body:JSON.stringify(b)});F=b;F.ja.menu=[...b.ja.menu];while(F.ja.menu.length<7)F.ja.menu.push({name:"",price:"",desc:""});DIRTY=false;CUR.status="draft";if(!quiet)note("下書きを保存しました。","good");return true}catch(e){note(e.message,"err");return false}}
-async function submit(){if(!confirm("この内容で承認に提出します。\n（提出すると、自動翻訳が行われます。数十秒かかります）"))return;
-const b=$("#submit");b.disabled=true;b.textContent="翻訳中…";
+async function submit(){if(!confirm("この内容で承認に提出します。よろしいですか？"))return;
+const b=$("#submit");b.disabled=true;b.textContent="提出中…";
 try{if(!await save(true))return;await api(`/api/store/${CUR.id}/submit`,{method:"POST"});alert("承認に提出しました。管理者の確認をお待ちください。");home()}catch(e){note(e.message,"err")}finally{b.disabled=false;b.textContent="承認に提出する"}}
 async function upload(inp){const f=inp.files[0];if(!f)return;const k=inp.dataset.up;try{const blob=await resize(f);const r=await fetch(`/api/upload?store=${CUR.id}&kind=${k}`,{method:"POST",body:blob});const j=await r.json();if(!r.ok)throw new Error(j.error);F[k+"Image"]=j.path;{const im=$("#im-"+k);im.src="/"+j.path;im.style.visibility="visible"}DIRTY=true;note("写真をアップロードしました。「下書きを保存」を押すと反映されます。","info")}catch(e){note(e.message,"err")}}
 function resize(f){return new Promise((res,rej)=>{const img=new Image();img.onload=()=>{const w=Math.min(1200,img.width),h=Math.round(img.height*w/img.width);const c=document.createElement("canvas");c.width=w;c.height=h;c.getContext("2d").drawImage(img,0,0,w,h);c.toBlob(b=>b?res(b):rej(new Error("画像を変換できませんでした")),"image/jpeg",.88)};img.onerror=()=>rej(new Error("画像を読み込めませんでした"));img.src=URL.createObjectURL(f)})}
