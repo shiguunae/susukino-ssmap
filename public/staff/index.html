@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SSMAP 店舗情報入力</title>
+<style>
+:root{--bg:#f6f4f0;--card:#fff;--ink:#241c17;--mute:#7a6f66;--line:#e3ddd4;--acc:#c9822a;--ok:#2e7d4f;--warn:#b3541e;--ng:#b3261e}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 -apple-system,"Hiragino Sans","Noto Sans JP",sans-serif}
+header{background:#211512;color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:8px;position:sticky;top:0;z-index:5}
+header b{font-size:15px}header small{color:#cbbfae}
+main{max-width:860px;margin:0 auto;padding:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
+h2{font-size:16px;margin:0 0 10px;padding-bottom:6px;border-bottom:2px solid var(--acc)}
+label{display:block;font-weight:600;font-size:13px;margin:12px 0 4px}label .h{font-weight:400;color:var(--mute);font-size:12px;margin-left:6px}
+input[type=text],input[type=tel],select,textarea{width:100%;padding:9px 10px;border:1px solid #cfc6ba;border-radius:8px;font:inherit;background:#fff}
+textarea{min-height:84px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.row3{display:grid;grid-template-columns:130px 1fr;gap:8px}
+@media(max-width:600px){.row{grid-template-columns:1fr}}
+button{font:inherit;border-radius:8px;border:1px solid #cfc6ba;background:#fff;padding:9px 14px;cursor:pointer}
+button.pri{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:700}button.ok{background:var(--ok);border-color:var(--ok);color:#fff;font-weight:700}
+button:disabled{opacity:.5;cursor:default}
+.list .it{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;cursor:pointer;background:#fff}
+.list .it:hover{border-color:var(--acc)}
+.badge{font-size:12px;padding:2px 9px;border-radius:99px;white-space:nowrap}
+.b-none{background:#eee;color:#666}.b-draft{background:#fff1d6;color:#8a5a00}.b-pending{background:#dfeeff;color:#1a5fa8}.b-rejected{background:#fde2df;color:var(--ng)}
+.menu .m{display:grid;grid-template-columns:2fr 1fr 2fr;gap:6px;margin-bottom:6px}
+@media(max-width:600px){.menu .m{grid-template-columns:1fr 1fr}.menu .m input:last-child{grid-column:1/-1}}
+.imgs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.imgs .im{border:1px dashed #cfc6ba;border-radius:10px;padding:8px;text-align:center;font-size:12px}
+.imgs img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px;background:#eee;display:block;margin-bottom:6px}
+.bar{position:sticky;bottom:0;background:rgba(246,244,240,.96);padding:10px 0;display:flex;gap:8px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:8px}
+.msg{padding:10px 12px;border-radius:8px;margin-bottom:12px;font-size:14px}.msg.err{background:#fde2df;color:var(--ng)}.msg.info{background:#fff1d6;color:#7a4b00}.msg.good{background:#e0f2e7;color:var(--ok)}
+.sub{font-size:12px;color:var(--mute)}
+</style></head><body>
+<header><b>SSMAP 店舗情報入力</b><small id="who"></small></header>
+<main id="app">読み込み中…</main>
+<script>
+const $=s=>document.querySelector(s);const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ST={none:"公開中",draft:"下書き",pending:"承認待ち",rejected:"差し戻し"};
+let ME=null,CUR=null,F=null,DIRTY=false;
+async function api(p,o={}){const r=await fetch(p,{...o,headers:{...(o.body&&typeof o.body==="string"?{"content-type":"application/json"}:{}),...(o.headers||{})}});const j=await r.json().catch(()=>({}));if(r.status===401){location.href="/login/?next="+encodeURIComponent(location.pathname);return new Promise(()=>{})}if(!r.ok)throw new Error(j.error||("エラー "+r.status));return j}
+async function home(){CUR=null;DIRTY=false;try{ME=await api("/api/me")}catch(e){$("#app").innerHTML=`<div class="msg err">${esc(e.message)}</div>`;return}
+$("#who").innerHTML=esc(ME.email)+(ME.isAdmin?' ・ <a href="/admin/" style="color:#f0c27a">承認画面へ</a>':"")+' ・ <a href="#" id="lo" style="color:#f0c27a">ログアウト</a>';$("#lo").onclick=async e=>{e.preventDefault();await fetch("/api/logout",{method:"POST"});location.href="/login/"};
+const l=ME.stores;$("#app").innerHTML=`<div class="card"><h2>担当店舗</h2>${l.length?`<div class="list">${l.map(s=>`<div class="it" data-id="${esc(s.id)}"><div><b>${esc(s.title)}</b><div class="sub">${esc(s.id)}${s.note?` ／ <span style="color:var(--ng)">差し戻し: ${esc(s.note)}</span>`:""}</div></div><span class="badge b-${s.status}">${ST[s.status]||s.status}</span></div>`).join("")}</div>`:'<p>担当店舗がまだ登録されていません。管理者にご連絡ください。</p>'}</div>`;
+document.querySelectorAll(".it").forEach(e=>e.onclick=()=>edit(e.dataset.id))}
+const PAY=["可","利用不可","要確認"];
+function payParse(t){t=t||"";if(/要確認/.test(t))return["要確認",""];if(/利用不可|非対応/.test(t))return["利用不可",""];const m=t.match(/^可[（(](.*)[）)]$/);if(m)return["可",m[1]];if(/^可/.test(t))return["可",""];return[t?"可":"要確認",""]}
+function payJoin(s,d){if(s==="要確認")return"要確認（お問い合わせください）";if(s==="利用不可")return"利用不可";return d.trim()?`可（${d.trim()}）`:"可"}
+function inp(k,lab,hint,o={}){const v=esc(F.ja[k]||"");return`<label>${lab}${hint?`<span class="h">${hint}</span>`:""}</label>${o.ta?`<textarea data-k="${k}">${v}</textarea>`:`<input type="text" data-k="${k}" value="${v}" ${o.list?`list="${o.list}"`:""} placeholder="${esc(o.ph||"")}">`}`}
+async function edit(id){try{const d=await api("/api/store/"+id);CUR=d;F=d.form;F.ja=F.ja||{};F.ja.menu=(F.ja.menu||[]).slice();while(F.ja.menu.length<7)F.ja.menu.push({name:"",price:"",desc:""});render()}catch(e){alert(e.message)}}
+function render(){const j=F.ja;const pc=payParse(j.cardText),pe=payParse(j.emoneyText),pq=payParse(j.qrText);
+const pay=(n,lab,p)=>`<label>${lab}</label><div class="row3"><select data-pay="${n}">${PAY.map(x=>`<option ${x===p[0]?"selected":""}>${x}</option>`).join("")}</select><input type="text" data-payd="${n}" value="${esc(p[1])}" placeholder="使えるもの（例: VISA・Master・JCB）"></div>`;
+const lock=CUR.status==="pending"&&!ME.isAdmin;
+$("#app").innerHTML=`<p><button id="back">← 店舗一覧へ</button></p>
+${CUR.status==="rejected"?`<div class="msg err"><b>差し戻されました:</b> ${esc(CUR.note)}</div>`:""}
+${CUR.status==="pending"?`<div class="msg info">承認待ちです。管理者が確認するまでお待ちください。${lock?"（編集はできません）":""}</div>`:""}
+<div class="card"><h2>${esc(j.heroTitle||CUR.id)} <span class="sub">（ID: ${esc(CUR.id)}）</span></h2><div class="sub">日本語だけ入力してください。英語・中国語・韓国語・タイ語は、管理者が翻訳します。</div></div>
+<div class="card"><h2>基本情報</h2>
+<div class="row"><div>${inp("heroTag","ジャンル","例: 居酒屋・焼肉",{list:"genres"})}</div><div>${inp("heroEyebrow","肩書","なければ空欄（非表示）")}</div></div>
+${inp("heroTitle","店名","")}${inp("heroKana","ふりがな（カタカナ）","")}
+${inp("heroSub","紹介文","2行にしたいときは改行できます",{ta:1})}</div>
+<div class="card"><h2>クーポン・料金</h2>
+${inp("couponMain","クーポン内容","例: ドリンク1杯無料")}<div class="row"><div>${inp("couponNote","クーポン条件","なければ空欄")}</div><div>${inp("couponExpiry","有効期限","例: 有効期限 2027年1月31日まで")}</div></div>
+${inp("budgetValue","予算目安","例: 4,000円～5,000円")}</div>
+<div class="card"><h2>お支払い・設備</h2>${pay("card","カード",pc)}${pay("emoney","電子マネー",pe)}${pay("qr","QRコード決済",pq)}
+<div class="row"><div>${inp("smokeText","喫煙可否","",{list:"smokes"})}</div><div>${inp("privateRoom","個室","",{list:"rooms"})}</div></div>
+${inp("seatValue","席数","例: 22席")}${inp("halalText","ハラールメニュー","",{list:"halals"})}</div>
+<div class="card"><h2>店舗情報</h2>${`<label>住所<span class="h">建物名・階まで</span></label><input type="text" id="address" value="${esc(F.address)}">`}
+${inp("hoursText","営業時間","例: 18:00～24:00（L.O.23:00）")}<div class="row"><div>${inp("closedText","定休日","例: 日曜／無休")}</div><div><label>電話番号</label><input type="tel" id="tel" value="${esc(F.tel)}"></div></div></div>
+<div class="card menu"><h2>メニュー（おすすめ・最大7品）</h2><div class="sub">名称・価格（例: 1,300円 / 900円～）・補足（任意）</div>${j.menu.map((m,i)=>`<div class="m"><input type="text" data-m="${i}.name" value="${esc(m.name)}" placeholder="名称"><input type="text" data-m="${i}.price" value="${esc(m.price)}" placeholder="価格"><input type="text" data-m="${i}.desc" value="${esc(m.desc||"")}" placeholder="補足（任意）"></div>`).join("")}</div>
+<div class="card"><h2>写真</h2><div class="imgs">${[["hero","トップ写真"],["menu","メニュー写真"],["interior","店内写真"]].map(([k,l])=>`<div class="im"><img id="im-${k}" ${F[k+"Image"]?`src="/${esc(F[k+"Image"])}"`:`style="visibility:hidden"`} alt=""><b>${l}</b><br><input type="file" accept="image/*" data-up="${k}" style="width:100%;font-size:11px"></div>`).join("")}</div><div class="sub" style="margin-top:6px">自動で横1200px以内に縮小されます。横長の写真がきれいです。</div></div>
+<div class="card"><h2>表示タグ</h2><label style="font-weight:400"><input type="checkbox" id="autoTags" ${F.autoTags===false?"":"checked"}> 自動で作る（通常はこのままでOK）</label>
+<div id="tags" style="display:${F.autoTags===false?"block":"none"}">${[1,2,3,4,5].map(n=>inp("tag"+n,"タグ"+n,"")).join("")}</div></div>
+<datalist id="genres">${["居酒屋","焼肉","ジンギスカン","寿司","ラーメン","しゃぶしゃぶ","焼鳥","串揚げ","和食","スイーツ","ダイニングバー"].map(x=>`<option>${x}`).join("")}</datalist>
+<datalist id="smokes">${["禁煙","喫煙可","分煙","電子タバコ可","全席喫煙可","禁煙（喫煙専用室あり）","要確認（お問い合わせください）"].map(x=>`<option>${x}`).join("")}</datalist>
+<datalist id="rooms">${["個室あり","個室なし","個室あり（半個室）","要確認（お問い合わせください）"].map(x=>`<option>${x}`).join("")}</datalist>
+<datalist id="halals">${["非対応","要確認（お問い合わせください）","対応"].map(x=>`<option>${x}`).join("")}</datalist>
+<div id="msg"></div>
+<div class="bar"><button id="save" ${lock?"disabled":""}>下書きを保存</button><button id="prev">プレビュー</button><button class="pri" id="submit" ${lock?"disabled":""}>承認に提出する</button></div>`;
+$("#back").onclick=()=>{if(DIRTY&&!confirm("保存していない変更があります。戻りますか？"))return;home()};
+document.querySelectorAll("[data-k],[data-pay],[data-payd],[data-m],#address,#tel").forEach(e=>e.addEventListener("input",()=>DIRTY=true));
+$("#autoTags").onchange=e=>{$("#tags").style.display=e.target.checked?"none":"block"};
+document.querySelectorAll("[data-up]").forEach(e=>e.onchange=()=>upload(e));
+$("#save").onclick=()=>save();$("#submit").onclick=submit;$("#prev").onclick=async()=>{if(!await save(true))return;open(`/?id=${CUR.id}&draft=1`,"_blank")}}
+function collect(){const j={...F.ja};document.querySelectorAll("[data-k]").forEach(e=>j[e.dataset.k]=e.value.trim());
+for(const[n,k]of[["card","cardText"],["emoney","emoneyText"],["qr","qrText"]])j[k]=payJoin(document.querySelector(`[data-pay=${n}]`).value,document.querySelector(`[data-payd=${n}]`).value);
+const mm=[];document.querySelectorAll("[data-m]").forEach(e=>{const[i,f]=e.dataset.m.split(".");(mm[i]=mm[i]||{})[f]=e.value.trim()});j.menu=mm.filter(m=>m&&m.name);
+return{...F,address:$("#address").value.trim(),tel:$("#tel").value.trim(),autoTags:$("#autoTags").checked,ja:j}}
+function note(t,c){$("#msg").innerHTML=t?`<div class="msg ${c}">${esc(t)}</div>`:""}
+async function save(quiet){try{const b=collect();await api("/api/store/"+CUR.id,{method:"PUT",body:JSON.stringify(b)});F=b;F.ja.menu=[...b.ja.menu];while(F.ja.menu.length<7)F.ja.menu.push({name:"",price:"",desc:""});DIRTY=false;CUR.status="draft";if(!quiet)note("下書きを保存しました。","good");return true}catch(e){note(e.message,"err");return false}}
+async function submit(){if(!confirm("この内容で承認に提出します。よろしいですか？"))return;
+const b=$("#submit");b.disabled=true;b.textContent="提出中…";
+try{if(!await save(true))return;await api(`/api/store/${CUR.id}/submit`,{method:"POST"});alert("承認に提出しました。管理者の確認をお待ちください。");home()}catch(e){note(e.message,"err")}finally{b.disabled=false;b.textContent="承認に提出する"}}
+async function upload(inp){const f=inp.files[0];if(!f)return;const k=inp.dataset.up;try{const blob=await resize(f);const r=await fetch(`/api/upload?store=${CUR.id}&kind=${k}`,{method:"POST",body:blob});const j=await r.json();if(!r.ok)throw new Error(j.error);F[k+"Image"]=j.path;{const im=$("#im-"+k);im.src="/"+j.path;im.style.visibility="visible"}DIRTY=true;note("写真をアップロードしました。「下書きを保存」を押すと反映されます。","info")}catch(e){note(e.message,"err")}}
+function resize(f){return new Promise((res,rej)=>{const img=new Image();img.onload=()=>{const w=Math.min(1200,img.width),h=Math.round(img.height*w/img.width);const c=document.createElement("canvas");c.width=w;c.height=h;c.getContext("2d").drawImage(img,0,0,w,h);c.toBlob(b=>b?res(b):rej(new Error("画像を変換できませんでした")),"image/jpeg",.88)};img.onerror=()=>rej(new Error("画像を読み込めませんでした"));img.src=URL.createObjectURL(f)})}
+home();
+</script></body></html>

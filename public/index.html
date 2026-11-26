@@ -319,7 +319,11 @@ a:focus-visible, button:focus-visible{ outline: 2px solid var(--amber); outline-
   <!-- JSでここに描画します -->
 </div>
 
-<script src="data.js"></script>
+<script>
+/* 店舗データの読み込み（?draft=1 は担当者・管理者の確認用プレビュー） */
+(function(){var q=new URLSearchParams(location.search);
+document.write('<script src="'+(q.get('draft')?'/api/draft.js?id='+encodeURIComponent(q.get('id')||''):'/data.js')+'"><\/script>');})();
+</script>
 <script src="ui-i18n.js"></script>
 <script>
 const TAG_ICONS = {
