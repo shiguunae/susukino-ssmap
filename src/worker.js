@@ -6,34 +6,53 @@ const js = (code, h = {}) => new Response(code, { headers: { "content-type": "ap
 const now = () => new Date().toISOString();
 const ID_RE = /^[a-z0-9][a-z0-9_-]{1,60}$/;
 
-// ---------- 認証（Cloudflare Access のJWTを検証） ----------
-let jwksCache = null;
-const b64u = (s) => Uint8Array.from(atob(s.replace(/-/g, "+").replace(/_/g, "/")), (c) => c.charCodeAt(0));
-async function verifyJwt(env, token) {
-  const [h, p, s] = token.split(".");
-  if (!s) return null;
-  const header = JSON.parse(new TextDecoder().decode(b64u(h)));
-  const payload = JSON.parse(new TextDecoder().decode(b64u(p)));
-  if (!jwksCache || jwksCache.at < Date.now() - 3600e3) {
-    const r = await fetch(`https://${env.TEAM_DOMAIN}/cdn-cgi/access/certs`);
-    jwksCache = { at: Date.now(), keys: (await r.json()).keys };
-  }
-  const jwk = jwksCache.keys.find((k) => k.kid === header.kid);
-  if (!jwk) return null;
-  const key = await crypto.subtle.importKey("jwk", jwk, { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" }, false, ["verify"]);
-  const ok = await crypto.subtle.verify("RSASSA-PKCS1-v1_5", key, b64u(s), new TextEncoder().encode(h + "." + p));
-  if (!ok) return null;
-  const aud = Array.isArray(payload.aud) ? payload.aud : [payload.aud];
-  if (env.POLICY_AUD && !aud.includes(env.POLICY_AUD)) return null;
-  if (payload.exp && payload.exp * 1000 < Date.now()) return null;
-  return payload.email ? String(payload.email).toLowerCase() : null;
+// ---------- 認証（メール＋パスワード、署名付きクッキー） ----------
+const enc = new TextEncoder();
+const toB64u = (buf) => btoa(String.fromCharCode(...new Uint8Array(buf))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+const fromB64u = (s) => Uint8Array.from(atob(s.replace(/-/g, "+").replace(/_/g, "/")), (c) => c.charCodeAt(0));
+async function hmac(env, msg) {
+  const k = await crypto.subtle.importKey("raw", enc.encode(env.SESSION_SECRET || ""), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
+  return toB64u(await crypto.subtle.sign("HMAC", k, enc.encode(msg)));
+}
+async function safeEq(env, a, b) { return (await hmac(env, "eq:" + a)) === (await hmac(env, "eq:" + b)); }
+async function pbkdf2(pw, salt) {
+  const k = await crypto.subtle.importKey("raw", enc.encode(pw), "PBKDF2", false, ["deriveBits"]);
+  return toB64u(await crypto.subtle.deriveBits({ name: "PBKDF2", hash: "SHA-256", salt, iterations: 100000 }, k, 256));
+}
+async function hashPw(pw) { const salt = crypto.getRandomValues(new Uint8Array(16)); return toB64u(salt) + ":" + (await pbkdf2(pw, salt)); }
+async function checkPw(pw, stored) { const [s, h] = (stored || "").split(":"); if (!s || !h) return false; return (await pbkdf2(pw, fromB64u(s))) === h; }
+async function makeSession(env, email) {
+  const body = toB64u(enc.encode(JSON.stringify({ e: email, x: Date.now() + 12 * 3600e3 })));
+  return body + "." + (await hmac(env, body));
 }
 async function authUser(env, req) {
-  if (env.DEV_EMAIL && env.ALLOW_DEV === "1") return env.DEV_EMAIL.toLowerCase();
-  if (!env.TEAM_DOMAIN) return { error: "ログイン設定（Cloudflare Access）がまだ完了していません。" };
-  const t = req.headers.get("cf-access-jwt-assertion");
-  if (!t) return { error: "ログインが必要です。" };
-  try { return (await verifyJwt(env, t)) || { error: "ログイン情報を確認できませんでした。" }; } catch { return { error: "ログイン情報を確認できませんでした。" }; }
+  if (!env.SESSION_SECRET) return { error: "ログイン設定（SESSION_SECRET）がまだ完了していません。" };
+  const m = (req.headers.get("cookie") || "").match(/(?:^|;\s*)ssmap_session=([^;]+)/);
+  if (!m) return { error: "ログインが必要です。" };
+  const [body, sig] = m[1].split(".");
+  if (!sig || (await hmac(env, body)) !== sig) return { error: "ログインが必要です。" };
+  try {
+    const o = JSON.parse(new TextDecoder().decode(fromB64u(body)));
+    if (o.x < Date.now()) return { error: "ログインの有効期限が切れました。" };
+    return String(o.e).toLowerCase();
+  } catch { return { error: "ログインが必要です。" }; }
+}
+async function login(env, req) {
+  if (!env.SESSION_SECRET) return json({ error: "ログイン設定がまだ完了していません。" }, 503);
+  await init(env);
+  const b = await req.json().catch(() => ({}));
+  const email = String(b.email || "").trim().toLowerCase(), pw = String(b.password || "");
+  const at = await env.DB.prepare("SELECT n, at FROM attempts WHERE email=?").bind(email).first();
+  if (at && at.n >= 5 && Date.now() - at.at < 15 * 60e3) return json({ error: "失敗が続いたため、15分ほどお待ちください。" }, 429);
+  let ok = false;
+  if (admins(env).includes(email)) ok = !!env.ADMIN_PASSWORD && (await safeEq(env, pw, env.ADMIN_PASSWORD));
+  if (!ok) { const s = await env.DB.prepare("SELECT pw FROM staff WHERE email=?").bind(email).first(); ok = !!(s && s.pw && (await checkPw(pw, s.pw))); }
+  if (!ok) {
+    await env.DB.prepare("INSERT INTO attempts (email,n,at) VALUES (?,1,?) ON CONFLICT(email) DO UPDATE SET n=CASE WHEN ?-at>900000 THEN 1 ELSE n+1 END, at=?").bind(email, Date.now(), Date.now(), Date.now()).run();
+    return json({ error: "メールアドレスまたはパスワードが違います。" }, 401);
+  }
+  await env.DB.prepare("DELETE FROM attempts WHERE email=?").bind(email).run();
+  return json({ ok: true }, 200, { "set-cookie": `ssmap_session=${await makeSession(env, email)}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=43200` });
 }
 const admins = (env) => (env.ADMIN_EMAILS || "").split(",").map((s) => s.trim().toLowerCase()).filter(Boolean);
 
@@ -43,9 +62,11 @@ async function init(env) {
   if (ready) return;
   await env.DB.batch([
     env.DB.prepare("CREATE TABLE IF NOT EXISTS stores (id TEXT PRIMARY KEY, sort INTEGER, published TEXT, draft TEXT, status TEXT DEFAULT 'none', note TEXT, updated_by TEXT, updated_at TEXT, submitted_by TEXT, submitted_at TEXT)"),
-    env.DB.prepare("CREATE TABLE IF NOT EXISTS staff (email TEXT PRIMARY KEY, stores TEXT DEFAULT '', name TEXT DEFAULT '')"),
+    env.DB.prepare("CREATE TABLE IF NOT EXISTS staff (email TEXT PRIMARY KEY, stores TEXT DEFAULT '', name TEXT DEFAULT '', pw TEXT DEFAULT '')"),
+    env.DB.prepare("CREATE TABLE IF NOT EXISTS attempts (email TEXT PRIMARY KEY, n INTEGER, at INTEGER)"),
     env.DB.prepare("CREATE TABLE IF NOT EXISTS history (id INTEGER PRIMARY KEY AUTOINCREMENT, store_id TEXT, action TEXT, actor TEXT, at TEXT, detail TEXT)"),
   ]);
+  try { await env.DB.prepare("ALTER TABLE staff ADD COLUMN pw TEXT DEFAULT ''").run(); } catch (e) { /* すでにある */ }
   const c = await env.DB.prepare("SELECT COUNT(*) n FROM stores").first();
   if (!c.n) {
     const ids = Object.keys(seed);
@@ -83,10 +104,12 @@ export default {
         if (o) return new Response(o.body, { headers: { "content-type": o.httpMetadata?.contentType || "image/jpeg", "cache-control": "public, max-age=31536000, immutable" } });
         return env.ASSETS.fetch(req);
       }
+      if (!env.DB && (p === "/api/login" || p.startsWith("/staff") || p.startsWith("/admin") || p.startsWith("/api/"))) return json({ error: "データベースが未設定です。" }, 503);
+      if (p === "/api/login" && req.method === "POST") return await login(env, req);
+      if (p === "/api/logout") return json({ ok: true }, 200, { "set-cookie": "ssmap_session=; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=0" });
       // 以降はログインが必要
       const user = await authUser(env, req);
-      if (typeof user !== "string") return p.startsWith("/api/") ? json({ error: user.error }, 401) : new Response(user.error, { status: 401, headers: { "content-type": "text/plain; charset=utf-8" } });
-      if (!env.DB) return json({ error: "データベースが未設定です。" }, 503);
+      if (typeof user !== "string") return p.startsWith("/api/") ? json({ error: user.error }, 401) : Response.redirect(url.origin + "/login/?next=" + encodeURIComponent(p), 302);
       await init(env);
       const isAdmin = admins(env).includes(user);
       if (!p.startsWith("/api/")) {
@@ -230,7 +253,7 @@ async function api(req, env, url, user, isAdmin) {
     return json({ ok: true });
   }
   if (p === "/api/admin/staff" && m === "GET") {
-    const rs = await env.DB.prepare("SELECT email, stores, name FROM staff ORDER BY email").all();
+    const rs = await env.DB.prepare("SELECT email, stores, name, (pw != '') AS hasPw FROM staff ORDER BY email").all();
     return json({ staff: rs.results, admins: admins(env) });
   }
   if (p === "/api/admin/staff" && m === "PUT") {
@@ -238,6 +261,10 @@ async function api(req, env, url, user, isAdmin) {
     const email = String(b.email || "").trim().toLowerCase();
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return json({ error: "メールアドレスが正しくありません。" }, 400);
     await env.DB.prepare("INSERT INTO staff (email, stores, name) VALUES (?,?,?) ON CONFLICT(email) DO UPDATE SET stores=excluded.stores, name=excluded.name").bind(email, String(b.stores || "").trim(), String(b.name || "").trim()).run();
+    if (b.password) {
+      if (String(b.password).length < 8) return json({ error: "パスワードは8文字以上にしてください。" }, 400);
+      await env.DB.prepare("UPDATE staff SET pw=? WHERE email=?").bind(await hashPw(String(b.password)), email).run();
+    }
     return json({ ok: true });
   }
   if (p === "/api/admin/staff" && m === "DELETE") {

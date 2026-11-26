@@ -1,0 +1,9 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>SSMAP ログイン</title>
+<style>body{margin:0;background:#f6f4f0;font:15px/1.6 -apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;color:#241c17;display:flex;min-height:100vh;align-items:center;justify-content:center}
+.c{background:#fff;border:1px solid #e3ddd4;border-radius:14px;padding:24px;width:min(380px,92vw)}h1{font-size:18px;margin:0 0 14px}label{display:block;font-weight:600;font-size:13px;margin:12px 0 4px}
+input{width:100%;padding:10px;border:1px solid #cfc6ba;border-radius:8px;font:inherit}button{width:100%;margin-top:16px;padding:11px;border:0;border-radius:8px;background:#c9822a;color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.e{background:#fde2df;color:#b3261e;padding:8px 10px;border-radius:8px;margin-top:12px;font-size:14px}</style></head><body>
+<form class="c" id="f"><h1>SSMAP 店舗情報入力 ログイン</h1><label>メールアドレス</label><input type="email" id="e" autocomplete="username" required><label>パスワード</label><input type="password" id="p" autocomplete="current-password" required><button>ログイン</button><div id="m"></div></form>
+<script>document.getElementById("f").onsubmit=async ev=>{ev.preventDefault();const r=await fetch("/api/login",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({email:e.value,password:p.value})});const j=await r.json().catch(()=>({}));
+if(r.ok){const n=new URLSearchParams(location.search).get("next");location.href=(n&&n.startsWith("/")&&!n.startsWith("//"))?n:"/staff/"}else m.innerHTML='<div class="e"></div>',m.firstChild.textContent=j.error||"ログインできませんでした"}</script></body></html>

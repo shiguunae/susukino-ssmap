@@ -35,9 +35,9 @@ button:disabled{opacity:.5;cursor:default}
 const $=s=>document.querySelector(s);const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const ST={none:"公開中",draft:"下書き",pending:"承認待ち",rejected:"差し戻し"};
 let ME=null,CUR=null,F=null,DIRTY=false;
-async function api(p,o={}){const r=await fetch(p,{...o,headers:{...(o.body&&typeof o.body==="string"?{"content-type":"application/json"}:{}),...(o.headers||{})}});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error||("エラー "+r.status));return j}
+async function api(p,o={}){const r=await fetch(p,{...o,headers:{...(o.body&&typeof o.body==="string"?{"content-type":"application/json"}:{}),...(o.headers||{})}});const j=await r.json().catch(()=>({}));if(r.status===401){location.href="/login/?next="+encodeURIComponent(location.pathname);return new Promise(()=>{})}if(!r.ok)throw new Error(j.error||("エラー "+r.status));return j}
 async function home(){CUR=null;DIRTY=false;try{ME=await api("/api/me")}catch(e){$("#app").innerHTML=`<div class="msg err">${esc(e.message)}</div>`;return}
-$("#who").innerHTML=esc(ME.email)+(ME.isAdmin?' ・ <a href="/admin/" style="color:#f0c27a">承認画面へ</a>':"");
+$("#who").innerHTML=esc(ME.email)+(ME.isAdmin?' ・ <a href="/admin/" style="color:#f0c27a">承認画面へ</a>':"")+' ・ <a href="#" id="lo" style="color:#f0c27a">ログアウト</a>';$("#lo").onclick=async e=>{e.preventDefault();await fetch("/api/logout",{method:"POST"});location.href="/login/"};
 const l=ME.stores;$("#app").innerHTML=`<div class="card"><h2>担当店舗</h2>${l.length?`<div class="list">${l.map(s=>`<div class="it" data-id="${esc(s.id)}"><div><b>${esc(s.title)}</b><div class="sub">${esc(s.id)}${s.note?` ／ <span style="color:var(--ng)">差し戻し: ${esc(s.note)}</span>`:""}</div></div><span class="badge b-${s.status}">${ST[s.status]||s.status}</span></div>`).join("")}</div>`:'<p>担当店舗がまだ登録されていません。管理者にご連絡ください。</p>'}</div>`;
 document.querySelectorAll(".it").forEach(e=>e.onclick=()=>edit(e.dataset.id))}
 const PAY=["可","利用不可","要確認"];
