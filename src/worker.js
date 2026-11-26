@@ -108,6 +108,9 @@ export default {
         }
         return env.ASSETS.fetch(req);
       }
+      // ログインが必要なのは /staff /admin /api だけ。それ以外（存在しないアドレスを含む）は通常どおり配信する
+      const guarded = p === "/staff" || p.startsWith("/staff/") || p === "/admin" || p.startsWith("/admin/") || p.startsWith("/api/");
+      if (!guarded) return env.ASSETS.fetch(req);
       if (!env.DB && (p === "/api/login" || p.startsWith("/staff") || p.startsWith("/admin") || p.startsWith("/api/"))) return json({ error: "データベースが未設定です。" }, 503);
       if (p === "/api/login" && req.method === "POST") return await login(env, req);
       if (p === "/api/logout") return json({ ok: true }, 200, { "set-cookie": "ssmap_session=; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=0" });
